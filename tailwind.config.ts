@@ -16,5 +16,10 @@ const config: Config = {
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      textColor: ['group-hover'],
+    },
+  },
 }
 export default config
