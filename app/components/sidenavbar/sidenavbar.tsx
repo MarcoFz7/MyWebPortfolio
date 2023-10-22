@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { TbUserStar, TbUserCode, TbUserQuestion } from 'react-icons/tb'
-import { GrContact } from 'react-icons/gr'
+import { PiChatCircleDotsBold } from 'react-icons/pi'
 
 const menuMainItems=[
   {
@@ -30,7 +30,7 @@ const menuSecondaryItems=[
   {
       path:"/contacts",
       name:"Contacts",
-      icon:<GrContact/>
+      icon:<PiChatCircleDotsBold/>
   }
 ]
 
@@ -80,21 +80,17 @@ export default function SideNavBar() {
                           {
                               menuSecondaryItems.map((item, index) => (
                                   <Link href={item.path} key={index} className="option group">
-                                      <div className="group-hover:text-white icon" style={{fontSize:'1.4rem'}}>{item.icon}</div>                    
+                                      <div className="group-hover:text-white icon" style={{fontSize:'1.5rem'}}>{item.icon}</div>                    
                                       <h3 className="group-hover:text-white link-text" style={{paddingRight:'10px'}}>{item.name}</h3>
                                   </Link>
                               ))
                           }                      
-                        </div>
-                        
+                        </div>                        
                       </div>  
                     </div>
                   </Disclosure.Panel> 
                 </Transition>
             </Disclosure>
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/projects">Projects</Link>
         </div>
     )
 }

@@ -24,7 +24,7 @@
     padding: 0.5rem;
     transition: color 0.3s, background-color 0.3s;
     outline: none;
-    box-shadow: 0 0 1.25px 2px #333; 
+    box-shadow: 0 0 0.5px 2px #333; 
     background-color: #333 !important; 
     color: #333;  
     cursor: default;
@@ -104,8 +104,8 @@
     line-height: 1.5rem;
     text-align: center;
     font-weight: bold;
-    color: rgb(30, 58, 138);
-    border-bottom: 1px solid rgb(30, 58, 138);
+    color: rgb(50, 78, 158);
+    border-bottom: 1px solid rgb(50, 78, 158);
     padding-bottom: 1rem;
     width: 100%;
 }
