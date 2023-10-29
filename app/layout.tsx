@@ -20,9 +20,21 @@ export default function RootLayout({
       <body className={inter.className}>
         <SideNavBar/>
         <div className='main-screen'>
-          <div className='main-screen-addornments'>
-            {children}
-          </div>
+          <div id="main-screen-addorns" className="main-screen-page">
+            <div id="main-content">
+              {children}
+            </div>
+            <div id="top-left-container">
+              <div id="top-left" className="corner"></div>
+              <div id="top-left-right-triangle"></div>
+              <div id="top-left-bottom-triangle"></div>
+            </div>
+            <div id="bottom-right-container">
+              <div id="bottom-right" className="corner"></div>
+              <div id="bottom-right-left-triangle"></div>
+              <div id="bottom-right-top-triangle"></div>
+            </div>
+          </div>    
         </div>
       </body>
     </html>

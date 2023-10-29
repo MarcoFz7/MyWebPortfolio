@@ -40,7 +40,7 @@ body {
   z-index: -1;
 }
 
-.main-screen-addornments {
+/*.main-screen-addornments {
   position: absolute;
   top: 10px;
   bottom: 10px;
@@ -69,4 +69,105 @@ body {
     conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
     -webkit-mask: var(--mask);
             mask: var(--mask);
+}*/
+
+.main-screen-page {
+  position: relative;
+  border-radius: 5px;
 }
+
+#main-screen-addorns {
+  background-color: inherit;
+  height: 100%;
+}
+
+.corner {
+  position: absolute;
+}
+#main-screen-addorns .corner {
+  background: none;
+  height: 30vh;
+  width: 27.5vw;
+}
+
+#top-left {
+  top: 5px;
+  left: 5px;
+  border-radius: 5px 0 0 0;
+  border-top: 15px solid #ff7777;
+  border-left: 15px solid #ff7777;
+}
+
+#top-left-right-triangle {
+  position: absolute;
+  top: 5px;
+  left: 27.5vw;
+  margin-left: 4.50px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff7777;
+  border-left: 15px solid transparent; /* Adjust the width of the left side */
+  border-bottom: 15px solid transparent;  /* Set the color you desire */
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+
+}
+
+#top-left-bottom-triangle {
+  position: absolute;
+  top: 30vh;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  margin-top: 4.85px;
+  background-color: #ff7777;
+  border-left: 15px solid transparent; /* Adjust the width of the left side */
+  border-bottom: 15px solid transparent;  /* Set the color you desire */
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+
+}
+
+#bottom-right {
+  bottom: 5px;
+  right: 5px;
+  border-radius: 0 0 5px 0;
+  border-bottom: 15px solid #ff7777;
+  border-right: 15px solid #ff7777;
+}
+
+#bottom-right-left-triangle {
+  position: absolute;
+  bottom: 5px;
+  right: 27.5vw;
+  margin-right: 4.70px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff7777;
+  border-left: 15px solid transparent; /* Adjust the width of the left side */
+  border-bottom: 15px solid transparent;  /* Set the color you desire */
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+#bottom-right-top-triangle {
+  position: absolute;
+  bottom: 30vh;
+  right: 5px;
+  margin-bottom: 4.55px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff7777;
+  border-left: 15px solid transparent; /* Adjust the width of the left side */
+  border-bottom: 15px solid transparent;  /* Set the color you desire */
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+#main-content {
+  position: relative;
+  top: 30px;
+  left: 35px;
+  width: 94%;
+}
+
+
+
+
+
