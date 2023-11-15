@@ -3,7 +3,9 @@ import './page.css'
 const page = () => {
   return (
     <div className="about-me-page">
-      ABOUT ME
+      <span className='page-header'>
+        Marco Ferraz
+      </span>
     </div>
   );
 };

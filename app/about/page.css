@@ -1,5 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
 .about-me-page {
+    position: absolute;
     width: 100%;
     height: 100%;
-    font-size: 30px;
+    padding-left: 1vw;
+    z-index: 10;
+}
+
+.page-header {
+    font-size: 10vh;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+
+    border-bottom: 2.5px solid rgb(50, 78, 158);
+}
+
+@media only screen and (min-height: 550px) {
+    .page-header {
+        font-size: 55px;
+    }
+}
+@media only screen and (max-width: 800px) and (min-width: 300px) {
+    .page-header {
+        font-size: 6vw;
+    }
+}
+@media only screen and (max-width: 300px) {
+    .page-header {
+        font-size: 24px;
+    }
 }

@@ -34,11 +34,28 @@ body {
   bottom: 3%;
   left: 13%;
   width: 74%;
-  height: 94%;
+  min-width: 225.6px;
 
-  border: 1px solid rgb(0,0,0);
+  border: 0.1px solid rgba(25,25,25,0.25);
   z-index: -1;
 }
+@media only screen and (max-width: 300px) {
+  .main-screen {
+      top: 1.5%;
+      bottom: 1.5%;
+      left: 3%;
+      width: 94%;
+  }
+}
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+  .main-screen {
+      top: 3%;
+      bottom: 3%;
+      left: 5%;
+      width: 90%;
+  }
+}
+
 
 /*.main-screen-addornments {
   position: absolute;
@@ -93,9 +110,20 @@ body {
 #top-left {
   top: 5px;
   left: 5px;
-  border-radius: 5px 0 0 0;
-  border-top: 15px solid #ff7777;
-  border-left: 15px solid #ff7777;
+  border-radius: 7.5px 0 0 0;
+  border-top: 15px solid rgb(50, 78, 158);
+  border-left: 15px solid rgb(50, 78, 158);
+}
+
+#top-left-rounded-corner {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  height: 20px;
+  width: 20px;
+  border-radius: 13.5px 0 0 0;
+  border-top: 7.5px solid rgb(50, 78, 158);
+  border-left: 7.5px solid rgb(50, 78, 158)
 }
 
 #top-left-right-triangle {
@@ -105,7 +133,7 @@ body {
   margin-left: 4.50px;
   width: 10px;
   height: 10px;
-  background-color: #ff7777;
+  background-color: rgb(50, 78, 158);
   border-left: 15px solid transparent; /* Adjust the width of the left side */
   border-bottom: 15px solid transparent;  /* Set the color you desire */
   clip-path: polygon(0 0, 100% 0, 0 100%);
@@ -119,7 +147,7 @@ body {
   width: 10px;
   height: 10px;
   margin-top: 4.85px;
-  background-color: #ff7777;
+  background-color: rgb(50, 78, 158);
   border-left: 15px solid transparent; /* Adjust the width of the left side */
   border-bottom: 15px solid transparent;  /* Set the color you desire */
   clip-path: polygon(0 0, 100% 0, 0 100%);
@@ -130,8 +158,19 @@ body {
   bottom: 5px;
   right: 5px;
   border-radius: 0 0 5px 0;
-  border-bottom: 15px solid #ff7777;
-  border-right: 15px solid #ff7777;
+  border-bottom: 15px solid rgb(50, 78, 158);
+  border-right: 15px solid rgb(50, 78, 158);
+}
+
+#bottom-right-rounded-corner {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  height: 20px;
+  width: 20px;
+  border-radius: 0 0 13.5px 0;
+  border-bottom: 7.5px solid rgb(50, 78, 158);
+  border-right: 7.5px solid rgb(50, 78, 158)
 }
 
 #bottom-right-left-triangle {
@@ -141,7 +180,7 @@ body {
   margin-right: 4.70px;
   width: 10px;
   height: 10px;
-  background-color: #ff7777;
+  background-color: rgb(50, 78, 158);
   border-left: 15px solid transparent; /* Adjust the width of the left side */
   border-bottom: 15px solid transparent;  /* Set the color you desire */
   clip-path: polygon(100% 0, 0 100%, 100% 100%);
@@ -154,17 +193,18 @@ body {
   margin-bottom: 4.55px;
   width: 10px;
   height: 10px;
-  background-color: #ff7777;
+  background-color: rgb(50, 78, 158);
   border-left: 15px solid transparent; /* Adjust the width of the left side */
   border-bottom: 15px solid transparent;  /* Set the color you desire */
   clip-path: polygon(100% 0, 0 100%, 100% 100%);
 }
 
 #main-content {
-  position: relative;
+  position: absolute;
   top: 30px;
   left: 35px;
-  width: 94%;
+  right: 35px;
+  bottom: 30px;
 }
 
 

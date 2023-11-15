@@ -26,11 +26,13 @@ export default function RootLayout({
             </div>
             <div id="top-left-container">
               <div id="top-left" className="corner"></div>
+              <div id="top-left-rounded-corner"></div>
               <div id="top-left-right-triangle"></div>
               <div id="top-left-bottom-triangle"></div>
             </div>
             <div id="bottom-right-container">
               <div id="bottom-right" className="corner"></div>
+              <div id="bottom-right-rounded-corner"></div>
               <div id="bottom-right-left-triangle"></div>
               <div id="bottom-right-top-triangle"></div>
             </div>
