@@ -6,7 +6,7 @@ import { GitHubProjectDTO } from '../models/githubprojectDTO';
 import { GitHubProjectsService } from '../services/githubprojectsService';
 import { GitHubProjectCommitsDTO } from '../models/githubprojectscommitsDTO';
 
-const page = () => {
+const Page = () => {
   const [projects, setProjects] = useState<GitHubProjectDTO[]>([]);
 
   /*useEffect(() => {
@@ -62,7 +62,10 @@ const page = () => {
 
     let status = "To Start";
 
-    projectCommits.forEach(commit => {  
+    const reversedCommits = [...projectCommits].reverse();
+
+    reversedCommits.forEach(commit => {  
+      console.log("Messagem: " + commit.commit.message);
       switch (true) {
         case commit.commit.message.includes("#earlydevelopment"):
           status = "Early Dev";
@@ -102,7 +105,7 @@ const page = () => {
   );
 };
  
-export default page;
+export default Page;
 
 
 
