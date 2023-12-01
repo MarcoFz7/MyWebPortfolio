@@ -65,7 +65,6 @@ const Page = () => {
     const reversedCommits = [...projectCommits].reverse();
 
     reversedCommits.forEach(commit => {  
-      console.log("Messagem: " + commit.commit.message);
       switch (true) {
         case commit.commit.message.includes("#earlydevelopment"):
           status = "Early Dev";
