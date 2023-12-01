@@ -54,6 +54,7 @@ const page = () => {
   }, []);
 
   // Function to determine the label for project status
+  // To Start -> Early Dev -> In Progress -> Advanced Dev
   const determineProjectStatus = (projectCommits: GitHubProjectCommitsDTO[] | undefined): string => {
     if (!projectCommits) {
       return "Loading status...";
