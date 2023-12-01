@@ -54,13 +54,13 @@ const page = () => {
   }, []);
 
   // Function to determine the label for project status
-  // To Start -> Early Dev -> In Progress -> Advanced Dev
+  // To Start -> Early Dev -> In Progress -> Advanced Dev -> Done
   const determineProjectStatus = (projectCommits: GitHubProjectCommitsDTO[] | undefined): string => {
     if (!projectCommits) {
       return "Loading status...";
     }
 
-    let status = "";
+    let status = "To Start";
 
     projectCommits.forEach(commit => {  
       switch (true) {
@@ -76,8 +76,6 @@ const page = () => {
         case commit.commit.message.includes("#done"):
           status = "Done";
           break;
-        default:
-          status = "To Start";
       }
     });
 
