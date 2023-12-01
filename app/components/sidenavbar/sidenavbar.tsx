@@ -3,7 +3,7 @@
 import './sidenavbar.css'
 import { Disclosure, Transition } from '@headlessui/react';
 import Link from 'next/link';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { TbUserStar, TbUserCode, TbUserQuestion } from 'react-icons/tb'
 import { PiChatCircleDotsBold } from 'react-icons/pi'
@@ -34,7 +34,11 @@ const menuSecondaryItems=[
   }
 ]
 
-export default function SideNavBar() {
+interface SideNavBarProps {
+  onItemClick: (itemName: string) => void;
+}
+
+export default function SideNavBar({ onItemClick }: SideNavBarProps) {
     const disclosureBtnRef = useRef(null);
 
     const [isMenuBtnFocused, setIsMenuBtnFocused] = useState(true);
@@ -45,6 +49,10 @@ export default function SideNavBar() {
         setIsMenuBtnFocused(!isMenuBtnFocused);
         setIsDisclosureBtnFocused(!isDisclosureBtnFocused);
     }
+
+    const handleItemClick = (itemName: string) => {
+      onItemClick(itemName);
+    };
 
     return (
         <div>
@@ -69,7 +77,7 @@ export default function SideNavBar() {
                         <div className='options'>                     
                           {
                               menuMainItems.map((item, index) => (
-                                  <Link href={item.path} key={index} className="option group">
+                                  <Link href={item.path} key={index} className="option group" onClick={() => handleItemClick(item.name)}>
                                       <div className="group-hover:text-white icon">{item.icon}</div>                    
                                       <h3 className="group-hover:text-white link-text">{item.name}</h3>
                                   </Link>
@@ -79,7 +87,7 @@ export default function SideNavBar() {
                         <div className='options'>                     
                           {
                               menuSecondaryItems.map((item, index) => (
-                                  <Link href={item.path} key={index} className="option group">
+                                  <Link href={item.path} key={index} className="option group" onClick={() => handleItemClick(item.name)}>
                                       <div className="group-hover:text-white icon" style={{fontSize:'1.5rem'}}>{item.icon}</div>                    
                                       <h3 className="group-hover:text-white link-text" style={{paddingRight:'10px'}}>{item.name}</h3>
                                   </Link>
