@@ -130,10 +130,10 @@ const Page = () => {
                 <span className='project-item-info-status'> {determineProjectStatus(project.projectCommits)} </span>
               </div> 
               <div className='project-item-info-techs'>
+                <span className='project-item-info-tech'> {determineProjectTechnology(project.projectCommits)} </span> 
                 <div className="project-item-info-techs-icon">
                   <IoInformationCircleOutline/>
                 </div>
-                <span className='project-item-info-tech'> {determineProjectTechnology(project.projectCommits)} </span> 
               </div>           
             </div>            
           </div>
