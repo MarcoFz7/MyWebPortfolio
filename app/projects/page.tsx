@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './page.css';
+import { IoInformationCircleOutline } from "react-icons/io5";
 import { GitHubProjectDTO } from '../models/githubprojectDTO';
 import { GitHubProjectsService } from '../services/githubprojectsService';
 import { GitHubProjectCommitsDTO } from '../models/githubprojectscommitsDTO';
@@ -54,34 +55,59 @@ const Page = () => {
   }, []);
 
   // Function to determine the label for project status
+  // Through project commits (Pre-determined schema)
   // To Start -> Early Dev -> In Progress -> Advanced Dev -> Done
   const determineProjectStatus = (projectCommits: GitHubProjectCommitsDTO[] | undefined): string => {
     if (!projectCommits) {
-      return "Loading status...";
+      return "To Start!";
     }
 
-    let status = "To Start";
+    let status = "To Start!";
 
+    // Needed so the last commit for status is the one whom determines it
     const reversedCommits = [...projectCommits].reverse();
 
     reversedCommits.forEach(commit => {  
       switch (true) {
         case commit.commit.message.includes("#earlydevelopment"):
-          status = "Early Dev";
+          status = "Early Dev!";
           break;
         case commit.commit.message.includes("#inprogress"):
-          status = "In Progress";
+          status = "In Progress!";
           break;
         case commit.commit.message.includes("#closingdevelopment"):
-          status = "Advanced Dev";
+          status = "Advanced Dev!";
           break;
         case commit.commit.message.includes("#done"):
-          status = "Done";
+          status = "Done!";
           break;
       }
     });
 
     return status;
+  };
+
+  // Function to determine the label for project main technology
+  // Through project commits (Pre-determined schema)
+  // #comment #setMainTechnology *mainTechnology*
+  const determineProjectTechnology = (projectCommits: GitHubProjectCommitsDTO[] | undefined): string => {
+    if (!projectCommits) {
+      return "Not specified!";
+    }
+
+    let tech = "Not specified!";
+
+    projectCommits.forEach(commit => {
+      if (commit.commit.message.includes("#setMainTechnology")) {
+      
+        // Use a simple regular expression to match the technology name
+        const match = commit.commit.message.match(/\*(.*?)\*/);
+
+        tech = match ? match[1].trim() : "Not found!";
+      }
+    });
+
+    return tech;
   };
 
   return (
@@ -93,9 +119,23 @@ const Page = () => {
         
         {projects.map((project) => (
           <div className="project-item" key={project.name}>
-            <strong>Name:</strong> {project.name}
-            <strong>Date:</strong> {project.created_at}
-            <strong>Status: {determineProjectStatus(project.projectCommits)}</strong>           
+            <div className="project-item-image">
+              <img src="/next.svg" alt={`${project.name} image loading!`} className='project-item-image-frame'></img>
+            </div>
+            <div className="project-item-info">
+              <span className='project-item-info-name'> {project.name} </span>
+              <div className='project-item-info-state'>
+                <span className='project-item-info-date'> {project.created_at} </span>
+                <span className='project-item-info-separator'>|</span>
+                <span className='project-item-info-status'> {determineProjectStatus(project.projectCommits)} </span>
+              </div> 
+              <div className='project-item-info-techs'>
+                <div className="project-item-info-techs-icon">
+                  <IoInformationCircleOutline/>
+                </div>
+                <span className='project-item-info-tech'> {determineProjectTechnology(project.projectCommits)} </span> 
+              </div>           
+            </div>            
           </div>
         ))}
 

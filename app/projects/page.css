@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Monoton:wght@600&display=swap');
+
 
 .projects-page {
     position: absolute;
@@ -11,7 +16,7 @@
 .page-header {
     font-size: 10vh;
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+    font-weight: 300;
 
     border-bottom: 2.5px solid rgb(50, 78, 158);
 }
@@ -41,5 +46,86 @@
     bottom: 0px;
     right: 0px;
     height: 75%;
-    width: 75%;
+    width: 100%;
 }
+
+.project-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+    .project-item {
+        flex-direction: column;    
+    }
+
+    .project-item-image {
+        margin-right: 0px; 
+        margin-bottom: 10px;
+    }
+}
+
+.project-item-image {
+    margin-right: 15px; 
+}
+
+.project-item-image-frame {
+    width: 100%;
+    height: 100%;
+}
+  
+.project-item-info {
+    display: flex;
+    flex-direction: column; 
+}
+
+.project-item-info-name {
+    text-decoration: underline;
+    font-size: max(3.3vh, 20px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgb(43, 75, 161)
+}
+
+.project-item-info-state {
+    display: flex;
+    flex-direction: row; 
+}
+
+.project-item-info-date {
+    font-size: max(2.3vh, 12px);
+    margin-right: 7px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+}
+
+.project-item-info-separator {
+    font-size: max(2.3vh, 12px);
+}
+
+.project-item-info-status {
+    font-size: max(2.3vh, 12px);
+    margin-left: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+}
+
+.project-item-info-techs {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+}
+
+.project-item-info-techs-icon {
+    margin-right: 5px;
+    color: rgb(53, 53, 53);
+    font-size: max(2.5vh, 14px);
+}
+
+.project-item-info-tech {
+    font-size: max(2.5vh, 14px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;    
+}
+  
