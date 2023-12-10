@@ -56,38 +56,6 @@ body {
   }
 }
 
-
-/*.main-screen-addornments {
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-  border-radius: 10px;
-
-  --b: 1.3rem;   
-  --c: linear-gradient(to bottom right, rgb(0,0,0),rgb(0, 2, 107), rgb(0, 2, 148), rgb(82, 25, 175), rgb(82, 25, 175),rgb(85, 32, 172),rgb(98, 47, 180),
-  red,red,red,red,red,red,red,red,red,
-  red,red,red,red,red,red,red,red,red,
-  rgb(98, 47, 180),rgb(85, 32, 172),rgb(82, 25, 175),rgb(82, 25, 175),rgb(0, 2, 148),rgb(0, 2, 107),rgb(0,0,0));   
-  --w: 25rem;  
-  --ww: 35rem;
-}
-.main-screen-addornments::before {
-  content :"";
-  position: absolute;
-  border-radius: 10px;
-  inset: 0;
-  background: var(--c,white);
-  --_g: #0000 90deg,#000 0;
-  --_p: var(--w) var(--w) no-repeat;
-  --mask:
-    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p),
-    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
-    -webkit-mask: var(--mask);
-            mask: var(--mask);
-}*/
-
 .main-screen-page {
   position: relative;
   border-radius: 5px;
