@@ -116,7 +116,7 @@ const Page = () => {
         Projects
       </span>
       <div className="projects-list">
-        
+
         {projects.map((project) => (
           <div className="project-item" key={project.name}>
             <div className="project-item-image">
