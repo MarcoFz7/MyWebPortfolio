@@ -6,7 +6,7 @@ export class GitHubProjectsService {
 
     static async getAllProjects(): Promise<GitHubProjectDTO[]> {
         try {
-          const response = await axios.get<GitHubProjectDTO[]>('https://api.github.com/users/MarcoFz7/repos');
+          const response = await axios.get<GitHubProjectDTO[]>('https://api.github.com/users/MarcoFz7/repos?sort=created_at');
           const fetchedData = response.data.map((project) => ({
             ...project,
             created_at: new Date(project.created_at).toISOString().split('T')[0],

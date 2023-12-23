@@ -12,48 +12,104 @@
     height: 100%;
     padding-left: 1vw;
     z-index: 10;
+    overflow: hidden;
 }
 
 .page-header {
-    font-size: 10vh;
+    font-size: max(4.75vh, 30px);
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
 
     border-bottom: 2.5px solid rgb(50, 78, 158);
 }
 
-@media only screen and (min-height: 550px) {
-    .page-header {
-        font-size: 55px;
-    }
-}
-@media only screen and (max-width: 800px) and (min-width: 300px) {
-    .page-header {
-        font-size: 6vw;
-    }
-}
-@media only screen and (max-width: 300px) {
-    .page-header {
-        font-size: 24px;
-    }
-}
-
 .projects-list {
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: flex-end;
     bottom: 0px;
     right: 0px;
     height: 75%;
     width: 100%;
+    overflow-y: auto;
+}
+
+/*Scroll related stuff (config for different browsers)*/
+/* Firefox */
+.projects-list {
+    scrollbar-width:thin;
+    scrollbar-color: rgb(235, 234, 234) #b9b9b9;
+}
+
+/* WebKit browsers */
+.projects-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.projects-list::-webkit-scrollbar-thumb {
+    background-color: #b9b9b9;
+    border-radius: 10px;
+}
+
+.projects-list::-webkit-scrollbar-track {
+    background-color: rgb(235, 234, 234);
+}
+
+/* Generic styling (for browsers without full support) */
+.projects-list {
+    scrollbar-face-color: #b9b9b9;
+    scrollbar-shadow-color: rgb(235, 234, 234);
+    scrollbar-highlight-color: rgb(235, 234, 234);
+    scrollbar-3dlight-color: rgb(235, 234, 234);
+    scrollbar-darkshadow-color: #b9b9b9;
+    scrollbar-track-color: rgb(235, 234, 234);
+}
+
+/* Style for IE */
+.projects-list::-ms-scrollbar {
+    width: 5px;
+}
+
+.projects-list::-ms-scrollbar-thumb {
+    background-color: #b9b9b9;
+    border-radius: 10px;
+}
+
+.projects-list::-ms-scrollbar-track {
+    background-color: rgb(235, 234, 234);
 }
 
 .project-item {
+    position: relative;
     display: flex;
     flex-direction: row;
-    margin-bottom: 15px;
+    margin-bottom: 11px;
+    padding-bottom: 10px;
+    margin-right: 7.5px;
+}
+
+.project-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 2px; /* Adjust the height of the border */
+    background-color: #b9b9b9;
+}
+
+.project-item:first-child {
+    margin-top: auto !important;
+}
+.project-item:last-child {
+    margin-bottom: 5px !important;
+    padding-bottom: 0;
+    border: none;
+}
+.project-item:last-child::after {
+    display: none;
 }
 
 .project-item-image {
@@ -129,4 +185,6 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 300;    
 }
+
+
   
