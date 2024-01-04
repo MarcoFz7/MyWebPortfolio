@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import './page.css';
-import { IoInformationCircleOutline } from "react-icons/io5";
+import { FaGithub } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
 import { GitHubProjectDTO } from '../models/githubprojectDTO';
 import { GitHubProjectsService } from '../services/githubprojectsService';
 import { GitHubProjectCommitsDTO } from '../models/githubprojectscommitsDTO';
+
 
 const Page = () => {
   const [projects, setProjects] = useState<GitHubProjectDTO[]>([]);
@@ -110,6 +112,14 @@ const Page = () => {
     return tech;
   };
 
+  const handleGithubClick = (projectName: string) => {
+    window.open("https://github.com/MarcoFz7/" + projectName);
+  }
+
+  const handleExternalWebsiteClick = (projectName: string) => {
+    // Do something to navigate to another website
+  }
+
   return (
     <div className="projects-page">
       <span className='page-header'>
@@ -121,6 +131,9 @@ const Page = () => {
           <div className="project-item" key={project.name}>
             <div className="project-item-image">
               <img src="/next.svg" alt={`${project.name} image loading!`} className='project-item-image-frame'></img>
+              <div className='overlay' style={{display: "none"}}>
+                <FiExternalLink/>
+              </div>
             </div>
             <div className="project-item-info">
               <span className='project-item-info-name'> {project.name} </span>
@@ -131,8 +144,8 @@ const Page = () => {
               </div> 
               <div className='project-item-info-techs'>
                 <span className='project-item-info-tech'> {determineProjectTechnology(project.projectCommits)} </span> 
-                <div className="project-item-info-techs-icon">
-                  <IoInformationCircleOutline/>
+                <div className="project-item-info-techs-icon" onClick={() => handleGithubClick(project.name)}>
+                  <FaGithub/>
                 </div>
               </div>           
             </div>            

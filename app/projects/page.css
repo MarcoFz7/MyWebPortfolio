@@ -113,8 +113,37 @@
 }
 
 .project-item-image {
+    position: relative;
     margin-right: 25px; 
 }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    color: white;
+    font-size: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay svg {
+    width: 22%;
+    height: 35%;
+}
+
+.overlay svg:hover {
+    cursor: pointer;
+    width: 24%;
+    height: 38%;
+}
+
 
 @media only screen and (max-width: 600px) {
     .project-item {
@@ -142,7 +171,7 @@
     font-size: max(3.3vh, 20px);
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    color: rgb(43, 75, 161)
+    color: rgb(43, 75, 161);
 }
 
 .project-item-info-state {
@@ -174,17 +203,27 @@
     align-items: center;
 }
 
+.project-item-info-tech {
+    font-size: max(2.5vh, 14px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;    
+}
+
 .project-item-info-techs-icon {
     margin-left: 7px;
     color: rgb(37, 37, 37);
     font-size: max(2.7vh, 16px);
 }
 
-.project-item-info-tech {
-    font-size: max(2.5vh, 14px);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;    
+.project-item-info-techs-icon:hover {
+    color: rgb(43, 75, 161);
+    font-size: max(2.8vh, 17px);
+    cursor: pointer;
 }
+
+
+
+
 
 
   

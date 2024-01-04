@@ -44,7 +44,6 @@ export default function SideNavBar({ onItemClick }: SideNavBarProps) {
     const [isMenuBtnFocused, setIsMenuBtnFocused] = useState(true);
     const [isDisclosureBtnFocused, setIsDisclosureBtnFocused] = useState(true);
 
-
     const handleMenuBtnFocused = () => {
         setIsMenuBtnFocused(!isMenuBtnFocused);
         setIsDisclosureBtnFocused(!isDisclosureBtnFocused);
@@ -71,9 +70,11 @@ export default function SideNavBar({ onItemClick }: SideNavBarProps) {
                   <Disclosure.Panel className='sidebar-panel'>
                     <div className='sidebar'>
                       <div className='container'>
-                        <h1 className='header'>
-                          Dashboard
-                        </h1>
+                        <div className='header-container'>
+                          <h1 className='header'>
+                            Dashboard
+                          </h1>           
+                        </div>
                         <div className='options'>                     
                           {
                               menuMainItems.map((item, index) => (
