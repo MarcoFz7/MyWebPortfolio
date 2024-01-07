@@ -1,0 +1,77 @@
+.project-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    color: white;
+    font-size: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+
+    /* display flex */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    opacity: 1; 
+    transition: opacity 0.3s ease-in-out !important;
+
+    z-index: 30;
+}
+
+.project-utils {
+    position: relative;
+    height: 35px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 3px;
+}
+
+.close-btn {
+    padding-top: 2.5px;
+}
+
+.close-btn, .go-to-website-btn {
+    height: 100%;
+    width: 30px;
+}
+
+.close-btn svg {
+    width: 94%;
+    height: 94%;
+}
+
+.go-to-website-btn svg {
+    width: 90%;
+    height: 90%;
+}
+
+.close-btn:hover svg {
+    width: 96.5%;
+    height: 96.5%;
+}
+
+.go-to-website-btn:hover svg {
+    width: 95%;
+    height: 95%;
+}
+
+.project-image-space {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+}

@@ -3,11 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import './page.css';
 import { FaGithub } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
 import { GitHubProjectDTO } from '../models/githubprojectDTO';
 import { GitHubProjectsService } from '../services/githubprojectsService';
 import { GitHubProjectCommitsDTO } from '../models/githubprojectscommitsDTO';
-
+import ProjectImgViewer from '../components/projectimgviewer/projectimgviewer';
 
 const Page = () => {
   const [projects, setProjects] = useState<GitHubProjectDTO[]>([]);
@@ -116,12 +115,21 @@ const Page = () => {
     window.open("https://github.com/MarcoFz7/" + projectName);
   }
 
-  const handleExternalWebsiteClick = (projectName: string) => {
-    // Do something to navigate to another website
-  }
+  // Handlers for project image viewer and aditional information
+  const [projectImageClicked, setProjectImageClicked] = useState("none");
+  const [clickedPhotoPath, setClickedPhotoPath] = useState("none");
+  
+  const handleProjectImageClick = (projectName: string) => {
+    setProjectImageClicked("flex");
+  };
+
+  const resetProjectImageClicked = () => {
+    setProjectImageClicked("none");
+  };
 
   return (
     <div className="projects-page">
+      <ProjectImgViewer imageToShow="/next.svg" projectName="test" projectImageClicked={projectImageClicked} resetProjectImageClicked={resetProjectImageClicked}></ProjectImgViewer>
       <span className='page-header'>
         Projects
       </span>
@@ -130,10 +138,10 @@ const Page = () => {
         {projects.map((project) => (
           <div className="project-item" key={project.name}>
             <div className="project-item-image">
-              <img src="/next.svg" alt={`${project.name} image loading!`} className='project-item-image-frame'></img>
-              <div className='overlay' style={{display: "none"}}>
+                  <img src="/next.svg" alt={`${project.name} image loading!`} className='project-item-image-frame' onClick={() => handleProjectImageClick(project.name)}></img>
+              {/* <div className='overlay'>
                 <FiExternalLink/>
-              </div>
+              </div> */}
             </div>
             <div className="project-item-info">
               <span className='project-item-info-name'> {project.name} </span>

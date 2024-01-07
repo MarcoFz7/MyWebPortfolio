@@ -5,7 +5,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Monoton:wght@600&display=swap');
 
-
 .projects-page {
     position: absolute;
     width: 100%;
@@ -117,6 +116,10 @@
     margin-right: 25px; 
 }
 
+.project-item-image:hover {
+    cursor: pointer;
+}
+
 .overlay {
     position: absolute;
     top: 0;
@@ -128,9 +131,16 @@
     font-size: 100%;
     background-color: rgba(0, 0, 0, 0.45);
 
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out !important;
+}
+
+.project-item-image:hover .overlay {
+    opacity: 1;
 }
 
 .overlay svg {
