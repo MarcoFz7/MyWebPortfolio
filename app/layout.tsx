@@ -6,7 +6,6 @@ import { Inter } from 'next/font/google'
 import { useState } from 'react'
 import SideNavBar from './components/sidenavbar/sidenavbar'
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 /*export const metadata: Metadata = {
@@ -28,12 +27,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className}>   
         <SideNavBar onItemClick={handleItemClick}/>
         <div className='main-screen'>
           <div id="main-screen-addorns" className="main-screen-page">
             <div id="main-content">
-              {/* <span id="navigation-marker">{itemName}</span> */}
+              {/* <span id="navigation-marker">{itemName}</span> */}  
               {children}
             </div>
             <div id="top-left-container">

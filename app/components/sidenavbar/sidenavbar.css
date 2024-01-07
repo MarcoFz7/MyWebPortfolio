@@ -54,6 +54,7 @@
 }
 
 .sidebar-panel {
+    position: fixed;
     opacity: 1; 
     transition: left 0.2s ease-out 0.15s, width 0.2s ease-out 0.15s; 
 }
