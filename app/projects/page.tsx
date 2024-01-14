@@ -117,19 +117,32 @@ const Page = () => {
 
   // Handlers for project image viewer and aditional information
   const [projectImageClicked, setProjectImageClicked] = useState("none");
-  const [clickedPhotoPath, setClickedPhotoPath] = useState("none");
+  const [clickedPhotoRelatedImages, setClickedPhotoRelatedImages] = useState<string[]>([]);
+  const [projectImageSource, setProjectImageSource] = useState("");
   
   const handleProjectImageClick = (projectName: string) => {
+    switch (projectName) {
+      case "MyWebPortfolio":
+        setClickedPhotoRelatedImages(["/next.svg", "/vercel.svg"]);
+        break;
+      case "MyLifestylePal":
+        setClickedPhotoRelatedImages(["/no-project-images-yet.svg"]);
+        break;     
+    }
+
     setProjectImageClicked("flex");
   };
 
   const resetProjectImageClicked = () => {
     setProjectImageClicked("none");
+
+    // Reset images to make sure they don't apear for a small time on the wronge image set
+    setClickedPhotoRelatedImages([]);
   };
 
   return (
     <div className="projects-page">
-      <ProjectImgViewer imageToShow="/next.svg" projectName="test" projectImageClicked={projectImageClicked} resetProjectImageClicked={resetProjectImageClicked}></ProjectImgViewer>
+      <ProjectImgViewer imagesToShow={clickedPhotoRelatedImages} projectName="test" projectImageClicked={projectImageClicked} resetProjectImageClicked={resetProjectImageClicked}></ProjectImgViewer>
       <span className='page-header'>
         Projects
       </span>
@@ -138,10 +151,7 @@ const Page = () => {
         {projects.map((project) => (
           <div className="project-item" key={project.name}>
             <div className="project-item-image">
-                  <img src="/next.svg" alt={`${project.name} image loading!`} className='project-item-image-frame' onClick={() => handleProjectImageClick(project.name)}></img>
-              {/* <div className='overlay'>
-                <FiExternalLink/>
-              </div> */}
+                  <img src="/next.svg" alt={`${project.name} image loading!`} className='project-item-image-frame' onClick={() => handleProjectImageClick(project.name)}></img>             
             </div>
             <div className="project-item-info">
               <span className='project-item-info-name'> {project.name} </span>
