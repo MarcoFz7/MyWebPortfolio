@@ -28,11 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>   
-        <SideNavBar onItemClick={handleItemClick}/>
         <div className='main-screen'>
+          
           <div id="main-screen-addorns" className="main-screen-page">
             <div id="main-content">
-              {/* <span id="navigation-marker">{itemName}</span> */}  
+              {/* <span id="navigation-marker">{itemName}</span> */} 
+              <SideNavBar onItemClick={handleItemClick}/>
               {children}
             </div>
             <div id="top-left-container">

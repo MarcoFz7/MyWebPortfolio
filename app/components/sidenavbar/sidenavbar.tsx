@@ -1,7 +1,6 @@
 "use client"
 
 import './sidenavbar.css'
-import { Disclosure, Transition } from '@headlessui/react';
 import Link from 'next/link';
 import React, { useState, useRef } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi'
@@ -39,67 +38,50 @@ interface SideNavBarProps {
 }
 
 export default function SideNavBar({ onItemClick }: SideNavBarProps) {
-    const disclosureBtnRef = useRef(null);
-
-    const [isMenuBtnFocused, setIsMenuBtnFocused] = useState(true);
-    const [isDisclosureBtnFocused, setIsDisclosureBtnFocused] = useState(true);
-
-    const handleMenuBtnFocused = () => {
-        setIsMenuBtnFocused(!isMenuBtnFocused);
-        setIsDisclosureBtnFocused(!isDisclosureBtnFocused);
-    }
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     const handleItemClick = (itemName: string) => {
       onItemClick(itemName);
     };
 
+    const toggleSidebar = () => {
+      setIsSidebarOpen(!isSidebarOpen);
+    };
+
     return (
-        <div>
-            <Disclosure as="nav" defaultOpen={true}>
-                <Disclosure.Button className ={isMenuBtnFocused ? "disclosureBtnFocused" : "disclosureBtn"} ref={disclosureBtnRef}>
-                    <GiHamburgerMenu className={isMenuBtnFocused ? "menuBtnFocused" : "menuBtn"} aria-hidden="true" onClick={handleMenuBtnFocused}/>
-                </Disclosure.Button>
-                <Transition
-                  enter="transform transition-transform ease-in-out duration-20000000"
-                  enterFrom="-translate-x-full"
-                  enterTo="translate-x-0"
-                  leave="transform transition-transform ease-in-out duration-300"
-                  leaveFrom="translate-x-0"
-                  leaveTo="-translate-x-full"
-                >
-                  <Disclosure.Panel className='sidebar-panel'>
-                    <div className='sidebar'>
-                      <div className='container'>
-                        <div className='header-container'>
-                          <h1 className='header'>
-                            Dashboard
-                          </h1>           
-                        </div>
-                        <div className='options'>                     
-                          {
-                              menuMainItems.map((item, index) => (
-                                  <Link href={item.path} key={index} className="option group" onClick={() => handleItemClick(item.name)}>
-                                      <div className="group-hover:text-white icon">{item.icon}</div>                    
-                                      <h3 className="group-hover:text-white link-text">{item.name}</h3>
-                                  </Link>
-                              ))
-                          }                      
-                        </div>
-                        <div className='options'>                     
-                          {
-                              menuSecondaryItems.map((item, index) => (
-                                  <Link href={item.path} key={index} className="option group" onClick={() => handleItemClick(item.name)}>
-                                      <div className="group-hover:text-white icon" style={{fontSize:'1.5rem'}}>{item.icon}</div>                    
-                                      <h3 className="group-hover:text-white link-text" style={{paddingRight:'10px'}}>{item.name}</h3>
-                                  </Link>
-                              ))
-                          }                      
-                        </div>                        
-                      </div>  
-                    </div>
-                  </Disclosure.Panel> 
-                </Transition>
-            </Disclosure>
-        </div>
+        <div className='sidebar-panel'>
+          <button type='button' title='Open/Close Sidebar' className={`openclose-sidebar-btn${isSidebarOpen ? '' : '-closed'}`} onClick={toggleSidebar}>
+              <GiHamburgerMenu/>
+          </button>
+          <div className={`sidebar${isSidebarOpen ? '' : '-closed'}`}>
+            <div className='container'>
+              <div className='header-container'>
+                <h1 className='header'>
+                  Dashboard
+                </h1>           
+              </div>
+              <div className='options'>                     
+                {
+                    menuMainItems.map((item, index) => (
+                        <Link href={item.path} key={index} className="option group" onClick={() => handleItemClick(item.name)}>
+                            <div className="group-hover:text-white icon">{item.icon}</div>                    
+                            <h3 className="group-hover:text-white link-text">{item.name}</h3>
+                        </Link>
+                    ))
+                }                      
+              </div>
+              <div className='options'>                     
+                {
+                    menuSecondaryItems.map((item, index) => (
+                        <Link href={item.path} key={index} className="option group" onClick={() => handleItemClick(item.name)}>
+                            <div className="group-hover:text-white icon" style={{fontSize:'1.5rem'}}>{item.icon}</div>                    
+                            <h3 className="group-hover:text-white link-text" style={{paddingRight:'10px'}}>{item.name}</h3>
+                        </Link>
+                    ))
+                }                      
+              </div>                        
+            </div>  
+          </div>
+        </div>           
     )
 }
