@@ -7,6 +7,7 @@ import { GitHubProjectDTO } from '../models/githubprojectDTO';
 import { GitHubProjectsService } from '../services/githubprojectsService';
 import { GitHubProjectCommitsDTO } from '../models/githubprojectscommitsDTO';
 import ProjectImgViewer from '../components/projectimgviewer/projectimgviewer';
+import Popup from '../components/popup/popup';
 
 const Page = () => {
   const [projects, setProjects] = useState<GitHubProjectDTO[]>([]);
@@ -117,20 +118,37 @@ const Page = () => {
 
   // Handlers for project image viewer and aditional information
   const [projectImageClicked, setProjectImageClicked] = useState("none");
+  const [projectWithNoImagesClicked, setProjectWithNoImagesClicked] = useState("none");
+  const [projectWithNoImageMessage, setProjectWithNoImageMessage] = useState<React.ReactNode>("");
   const [clickedPhotoRelatedImages, setClickedPhotoRelatedImages] = useState<string[]>([]);
   const [projectImageSource, setProjectImageSource] = useState("");
+
   
-  const handleProjectImageClick = (projectName: string) => {
+  const handleProjectImageClick = (projectName: string) => {  
+    let numberOfImages = 0;
+
     switch (projectName) {
       case "MyWebPortfolio":
         setClickedPhotoRelatedImages(["/next.svg", "/vercel.svg"]);
+        numberOfImages = 2;
         break;
       case "MyLifestylePal":
-        setClickedPhotoRelatedImages(["/no-project-images-yet.svg"]);
+        setClickedPhotoRelatedImages([]);
+        numberOfImages = 0;
         break;     
     }
 
-    setProjectImageClicked("flex");
+    if (numberOfImages == 0) {
+      setProjectWithNoImagesClicked("flex");
+
+      setProjectWithNoImageMessage(
+      <>
+        <strong>{projectName}</strong> has no showcase images!
+      </>
+      )
+    } else {
+      setProjectImageClicked("flex");
+    }
   };
 
   const resetProjectImageClicked = () => {
@@ -140,9 +158,14 @@ const Page = () => {
     setClickedPhotoRelatedImages([]);
   };
 
+  const resetPopup = () => {
+    setProjectWithNoImagesClicked("none");
+  }
+
   return (
     <div className="projects-page">
       <ProjectImgViewer imagesToShow={clickedPhotoRelatedImages} projectName="test" projectImageClicked={projectImageClicked} resetProjectImageClicked={resetProjectImageClicked}></ProjectImgViewer>
+      <Popup popupDisplay={projectWithNoImagesClicked} popupType='info' popupMessage={projectWithNoImageMessage} resetPopup={resetPopup}></Popup>
       <span className='page-header'>
         Projects
       </span>
