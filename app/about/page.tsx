@@ -40,7 +40,7 @@ const Page = () => {
           <span className='presentation-message' onClick={handleTownClick}>
             <strong>Hello</strong> Reader! <br></br> Born in 2002, in a small portuguese town,&nbsp;
             <u>Marco de Canaveses</u>,
-            I'm a software developer who loves learning new technologies and areas of the IT&nbsp; 
+            I&apos;m a software developer who loves learning new technologies and areas of the IT&nbsp; 
             <strong>world</strong>.<br></br>
             From the freedom that comes with personal web development, a newfound passion emerged:
             learning how to build simple, intuitive and harmonious web applications.
