@@ -43,15 +43,10 @@ export default function RootLayout({
     const isSidebarClick = hasClassOrAncestor(clickedElement, 'sidebar');
   
     if (!sidebarNotification) {
-      if (isSidebarClick) {
-        console.log('Clicked on the sidebar or its buttons.');
-      } else {
-        console.log('Clicked on other element.');
+      if (!isSidebarClick) {  
         setSidebarNotification(true);
       }
     }
-
-    console.log(sidebarNotification);
   };
 
   // Reset to allow the sidebar to close again if opened and the user clicks outside the sidebar, and so on
