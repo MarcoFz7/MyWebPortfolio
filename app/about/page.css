@@ -17,6 +17,31 @@
     border-bottom: 2.5px solid rgb(50, 78, 158);
 }
 
+.page-sub-header {
+    width: 100%;
+    height: 10%;
+    margin-top: 10px;
+}
+
+.linkedIn-btn, .gitHub-btn {
+    background-color: rgb(255,255,255);
+    padding: 5px;
+    color: rgb(37, 37, 37);
+    font-size: max(2.7vh, 16px);
+    transition: ease-in-out 0.25s;
+    border-bottom: 1px solid rgb(50, 78, 158);
+}
+
+.gitHub-btn {
+    margin-left: 10px;  
+}
+
+.gitHub-btn:hover, .linkedIn-btn:hover {
+    background-color: rgb(0,0,0);
+    color: rgb(255,255,255);
+    cursor: pointer;
+}
+
 .page-presentation {
     position: absolute;
     display: flex;
@@ -24,15 +49,17 @@
     align-items: flex-end;
     bottom: 0px;
     right: 0px;
-    height: 70%;
-    width: 35%;
+    height: 60%;
+    width: 30rem;
+    max-width: 100%;
     overflow-y: auto;
+    overflow-x:hidden;
     z-index: 1; 
-    padding-right: 5px;
+    padding-right: 6.5px;
     margin-bottom: 5px;
 }
 
-@media only screen and (min-width: 1050px) and (max-width: 130px) {
+/*@media only screen and (min-width: 1050px) and (max-width: 130px) {
     .page-presentation {
         width: 41%;
     }
@@ -57,7 +84,7 @@
         width: 100%;
         padding-left: 3px;
     }
-}
+}*/
 
 .page-presentation::-webkit-scrollbar-track
 {
@@ -80,22 +107,23 @@
 }
 
 .presentation-message {
-    font-size: clamp(15.5px, 1.8vw, 20px);
+    font-size: clamp(16px, 1.8vw, 20px);
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     margin-top: auto;
+    margin-left: 2px;
 }
 
 .presentation-message strong {
     font-weight: bold;
 }
 
-.presentation-message u {
-    text-decoration: none;
-    border-bottom: 1px solid rgb(0, 0, 0);
+.presentation-message a {
+    text-decoration:underline;
+    text-underline-offset: 4px;
 }
 
-.presentation-message u:hover {
+.presentation-message a:hover {
     border-color:rgb(50, 78, 158);
     cursor: pointer;
     color: rgb(50, 78, 158);
