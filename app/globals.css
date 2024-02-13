@@ -26,11 +26,36 @@
 
   --darker-green-rgb: 0, 162, 104;
   --lighter-green-rgb: 0, 177, 121;
+
+  --sidebar-btn-specific-rgb: 0,0,0;
+
+  --imageviewer-background-utils-specific-rgb: 0,0,0;
+  --imageviewer-imagecounter-specific-rgb: 0,0,0;
+  --imageviewer-imagecounter-specific-opacity: 0.45;
 }
 
 [data-theme="dark"] {
   --background-start-rgb: 45, 45, 45;
   --background-end-rgb: 10, 10, 10;
+
+  /* Dark scheme */
+  --details-rgb: 0, 0, 0;
+  --details-2-rgb: 255, 255, 255;
+
+  --primary-rgb: 209, 177, 164;
+  --secondary-rgb: 216, 187, 176; 
+  --tertiary-rgb: 223, 197, 188;
+  --weaker-reserve-rgb: 228, 205, 198;
+  --reserve-rgb: 233, 212, 205;
+  --stronger-reserve-rgb: 240, 225, 220;
+
+  --primary-link-rgb: 211, 171, 155;
+
+  --darker-green-rgb: 0, 162, 104;
+  --lighter-green-rgb: 0, 177, 121;
+
+  --imageviewer-imagecounter-specific-rgb: 255,255,255;
+  --imageviewer-imagecounter-specific-opacity: 0.8;
 }
 
 body {

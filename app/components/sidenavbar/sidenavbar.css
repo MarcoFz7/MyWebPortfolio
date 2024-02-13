@@ -21,7 +21,7 @@
 
 .openclose-sidebar-btn-closed {
     background-color: rgb(var(--weaker-reserve-rgb));
-    color: rgb(var(--details-2-rgb));
+    color: rgb(var(--sidebar-btn-specific-rgb));
     border-color: rgb(var(--primary-rgb));
 }
 

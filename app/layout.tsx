@@ -58,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" onClick={sidebarNotification ? undefined : handleHtmlClick}>
       <body /*className={inter.className}*/>
-        <Providers>   
+        <Providers>  
           <div className='main-screen'>
             <div id="main-screen-addorns" className="main-screen-page">
               <div id="main-content">

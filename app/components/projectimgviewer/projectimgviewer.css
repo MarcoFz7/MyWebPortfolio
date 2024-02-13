@@ -34,7 +34,7 @@
     padding-top: 3px;
     padding-bottom: 3px;
 
-    background-color: rgba(var(--details-2-rgb), 0.45);
+    background-color: rgba(var(--imageviewer-background-utils-specific-rgb), 0.45);
 
     border: 1px solid rgb(var(--stronger-reserve-rgb),0.8);
     border-radius: 5px;
@@ -123,7 +123,7 @@
     margin-left: 3.5px;
     margin-right: 3.5px;
 
-    background-color: rgb(var(--details-2-rgb), 0.45);
+    background-color: rgb(var(--imageviewer-imagecounter-specific-rgb), var(--imageviewer-imagecounter-specific-opacity));
     border: 1px solid rgb(var(--details-2-rgb));
     border-radius: 2px;
 
