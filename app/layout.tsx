@@ -2,11 +2,12 @@
 
 import './globals.css'
 //import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+//import { Inter } from 'next/font/google'
 import { useState } from 'react'
 import SideNavBar from './components/sidenavbar/sidenavbar'
+import Providers from './providers'
 
-const inter = Inter({ subsets: ['latin'] })
+/*const inter = Inter({ subsets: ['latin'] })*/
 
 /*export const metadata: Metadata = {
   title: 'Create Next App',
@@ -56,29 +57,30 @@ export default function RootLayout({
 
   return (
     <html lang="en" onClick={sidebarNotification ? undefined : handleHtmlClick}>
-      <body className={inter.className}>   
-        <div className='main-screen'>
-          
-          <div id="main-screen-addorns" className="main-screen-page">
-            <div id="main-content">
-              {/* <span id="navigation-marker">{itemName}</span> */} 
-              <SideNavBar onItemClick={handleItemClick} onLayoutNotification={sidebarNotification} onSidebarNotification={handleHtmlClickReset}/>
-              {children}
-            </div>
-            <div id="top-left-container">
-              <div id="top-left" className="corner"></div>
-              <div id="top-left-rounded-corner"></div>
-              <div id="top-left-right-triangle"></div>
-              <div id="top-left-bottom-triangle"></div>
-            </div>
-            <div id="bottom-right-container">
-              <div id="bottom-right" className="corner"></div>
-              <div id="bottom-right-rounded-corner"></div>
-              <div id="bottom-right-left-triangle"></div>
-              <div id="bottom-right-top-triangle"></div>
-            </div>
-          </div>    
-        </div>
+      <body /*className={inter.className}*/>
+        <Providers>   
+          <div className='main-screen'>
+            <div id="main-screen-addorns" className="main-screen-page">
+              <div id="main-content">
+                {/* <span id="navigation-marker">{itemName}</span> */} 
+                <SideNavBar onItemClick={handleItemClick} onLayoutNotification={sidebarNotification} onSidebarNotification={handleHtmlClickReset}/>
+                {children}
+              </div>
+              <div id="top-left-container">
+                <div id="top-left" className="corner"></div>
+                <div id="top-left-rounded-corner"></div>
+                <div id="top-left-right-triangle"></div>
+                <div id="top-left-bottom-triangle"></div>
+              </div>
+              <div id="bottom-right-container">
+                <div id="bottom-right" className="corner"></div>
+                <div id="bottom-right-rounded-corner"></div>
+                <div id="bottom-right-left-triangle"></div>
+                <div id="bottom-right-top-triangle"></div>
+              </div>
+            </div>    
+          </div>
+        </Providers>
       </body>
     </html>
   )
