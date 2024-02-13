@@ -1,0 +1,47 @@
+
+.toggle {
+    margin-top: 1.5rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60px;
+    background-color: rgb(var(--stronger-reserve-rgb));
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    padding: 2.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid rgb(var(--primary-rgb));
+}
+
+.toggle label:hover {
+    cursor: pointer;
+}
+
+.toggle label svg {
+    font-size: 1.7rem;
+    line-height: 1;
+    /*color: rgb(var(--primary-rgb), 0.9);*/
+    transition: opacity 0.3s ease;
+}
+
+.toggle label .icon:nth-child(2) {
+    margin-left: auto; /*Moves second icon to the right*/
+}
+
+.toggle input:checked + label .icon:nth-child(1) {
+    opacity: 0;
+}
+
+.toggle input:checked + label .icon:nth-child(2) {
+    opacity: 1;
+}
