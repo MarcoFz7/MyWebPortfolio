@@ -3,15 +3,16 @@
 import { ThemeProvider } from 'next-themes'
 import { useState, useEffect} from 'react'
 
-export default function Providers({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
+interface ProvidersProps {
+  onProvidersReady: () => void;
+}
+
+export default function Providers({children, onProvidersReady}: {children: React.ReactNode} & ProvidersProps) {
     const [mounted, setMounted] = useState(false); 
 
     useEffect(() => {
         setMounted(true);
+        onProvidersReady();
     }, []);
 
     if(!mounted) {

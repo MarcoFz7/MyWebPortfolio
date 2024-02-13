@@ -10,13 +10,13 @@ export default function ThemeSwitcher() {
     const { theme, setTheme } = useTheme();
     const [isToggled, setIsToggled] = useState(theme == 'dark');
 
-    /*useEffect(() => {
+    useEffect(() => {
         setMounted(true);
-      }, []);
+    }, [theme, setTheme]);  
 
     if(!mounted) {
         return null;
-    }*/
+    }
 
     const handleToggle = () => {
         setIsToggled(!isToggled);
@@ -34,7 +34,7 @@ export default function ThemeSwitcher() {
                 <input title="Light/dark mode" type="checkbox" id="switch" onChange={handleToggle}/>
                 <label htmlFor="switch">
                 {isToggled ? (
-                    <GoMoon style={{ marginLeft: 'auto', color: 'rgb(209,177,164)'}}/>
+                    <GoMoon style={{ marginLeft: 'auto', color: 'rgb(0,0,0)'}}/>
                     ) : (
                     <GoSun style={{ color: 'rgb(52,60,96)' }}/>
                     )}       
