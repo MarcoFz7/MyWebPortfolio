@@ -3,33 +3,43 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 245, 245, 245;
+  --background-end-rgb: 210, 210, 210;
   --min-height: 335px !important;
   --min-width: 255px !important;
   height: 100%;
   min-height: var(--min-height);
   min-width: var(--min-width);
+
+  /* Light scheme */
+  --details-rgb: 255, 255, 255;
+  --details-2-rgb: 0, 0, 0;
+
+  --primary-rgb: 52, 60, 96;
+  --secondary-rgb: 81, 87, 123; 
+  --tertiary-rgb: 109, 115, 151;
+  --weaker-reserve-rgb: 143, 145, 174;
+  --reserve-rgb: 177, 181, 216;
+  --stronger-reserve-rgb: 224, 227, 250;
+
+  --primary-link-rgb: 42, 50, 86;
+
+  --darker-green-rgb: 0, 162, 104;
+  --lighter-green-rgb: 0, 177, 121;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-    height: 100%;
-  }
+[data-theme="dark"] {
+  --background-start-rgb: 45, 45, 45;
+  --background-end-rgb: 10, 10, 10;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  ),
+  rgb(var(--background-start-rgb));
 }
 
 .main-screen {
@@ -43,7 +53,7 @@ body {
   /*var min-height - 11.5*/
   min-height: 323.5px !important;
 
-  border: 0.1px solid rgba(25,25,25,0.25);
+  border: 0.1px solid rgba(var(--secondary-rgb), 0.55);
   z-index: 1;
 }
 @media only screen and (max-width: 325px) {
@@ -95,8 +105,8 @@ body {
   top: 5px;
   left: 5px;
   border-radius: 7.5px 0 0 0;
-  border-top: 15px solid rgb(50, 78, 158);
-  border-left: 15px solid rgb(50, 78, 158);
+  border-top: 15px solid rgb(var(--primary-rgb));
+  border-left: 15px solid rgb(var(--primary-rgb));
 }
 
 #top-left-rounded-corner {
@@ -106,8 +116,8 @@ body {
   height: 20px;
   width: 20px;
   border-radius: 13.5px 0 0 0;
-  border-top: 7.5px solid rgb(50, 78, 158);
-  border-left: 7.5px solid rgb(50, 78, 158)
+  border-top: 7.5px solid rgb(var(--primary-rgb));
+  border-left: 7.5px solid rgb(var(--primary-rgb))
 }
 
 #top-left-right-triangle {
@@ -117,7 +127,7 @@ body {
   margin-left: 4.50px;
   width: 10px;
   height: 10px;
-  background-color: rgb(50, 78, 158);
+  background-color: rgb(var(--primary-rgb));
   border-left: 15px solid transparent; /* Adjust the width of the left side */
   border-bottom: 15px solid transparent;  /* Set the color you desire */
   clip-path: polygon(0 0, 100% 0, 0 100%);
@@ -131,7 +141,7 @@ body {
   width: 10px;
   height: 10px;
   margin-top: 4.85px;
-  background-color: rgb(50, 78, 158);
+  background-color: rgb(var(--primary-rgb));
   border-left: 15px solid transparent; /* Adjust the width of the left side */
   border-bottom: 15px solid transparent;  /* Set the color you desire */
   clip-path: polygon(0 0, 100% 0, 0 100%);
@@ -142,8 +152,8 @@ body {
   bottom: 5px;
   right: 5px;
   border-radius: 0 0 5px 0;
-  border-bottom: 15px solid rgb(50, 78, 158);
-  border-right: 15px solid rgb(50, 78, 158);
+  border-bottom: 15px solid rgb(var(--primary-rgb));
+  border-right: 15px solid rgb(var(--primary-rgb));
 }
 
 #bottom-right-rounded-corner {
@@ -153,8 +163,8 @@ body {
   height: 20px;
   width: 20px;
   border-radius: 0 0 13.5px 0;
-  border-bottom: 7.5px solid rgb(50, 78, 158);
-  border-right: 7.5px solid rgb(50, 78, 158)
+  border-bottom: 7.5px solid rgb(var(--primary-rgb));
+  border-right: 7.5px solid rgb(var(--primary-rgb));
 }
 
 #bottom-right-left-triangle {
@@ -164,7 +174,7 @@ body {
   margin-right: 4.70px;
   width: 10px;
   height: 10px;
-  background-color: rgb(50, 78, 158);
+  background-color: rgb(var(--primary-rgb));
   border-left: 15px solid transparent; /* Adjust the width of the left side */
   border-bottom: 15px solid transparent;  /* Set the color you desire */
   clip-path: polygon(100% 0, 0 100%, 100% 100%);
@@ -177,7 +187,7 @@ body {
   margin-bottom: 4.55px;
   width: 10px;
   height: 10px;
-  background-color: rgb(50, 78, 158);
+  background-color: rgb(var(--primary-rgb));
   border-left: 15px solid transparent; /* Adjust the width of the left side */
   border-bottom: 15px solid transparent;  /* Set the color you desire */
   clip-path: polygon(100% 0, 0 100%, 100% 100%);

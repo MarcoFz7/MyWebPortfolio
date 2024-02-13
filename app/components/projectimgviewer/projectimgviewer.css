@@ -7,7 +7,7 @@
     box-sizing: border-box;
     color: white;
     font-size: 100%;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(var(--details-2-rgb), 0.45);
 
     /* display flex */
     align-items: center;
@@ -34,9 +34,9 @@
     padding-top: 3px;
     padding-bottom: 3px;
 
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(var(--details-2-rgb), 0.45);
 
-    border: 1px solid rgb(255,255,255,0.8);
+    border: 1px solid rgb(var(--stronger-reserve-rgb),0.8);
     border-radius: 5px;
 }
 
@@ -73,10 +73,10 @@
 }
 
 .next-image-btn, .previous-image-btn {
-    background-color: rgb(255,255,255);
-    color: rgb(0,0,0);
+    background-color: rgb(var(--tertiary-rgb));
+    color: rgb(var(--details-rgb));
 
-    border: 1px solid rgb(255,255,255);
+    border: 1px solid rgb(var(--details-2-rgb));
     border-radius: 5px;
 }
 
@@ -98,19 +98,23 @@
 .close-btn:hover svg {
     width: 93.5%;
     height: 97.5%;
+
+    color: rgb(var(--stronger-reserve-rgb));
 }
 
 .go-to-website-btn:hover svg {
     width: 92.5%;
     height: 92.5%;
+
+    color: rgb(var(--stronger-reserve-rgb));
 }
 
 .next-image-btn:hover {
-    color: rgb(50, 78, 158);
+    color: rgb(var(--details-2-rgb));
 }
 
 .previous-image-btn:hover {
-    color: rgb(50, 78, 158);
+    color: rgb(var(--details-2-rgb));
 }
 
 .image-counter {
@@ -119,11 +123,11 @@
     margin-left: 3.5px;
     margin-right: 3.5px;
 
-    background-color: rgb(0,0,0, 0.45);
-    border: 1px solid rgb(0,0,0);
+    background-color: rgb(var(--details-2-rgb), 0.45);
+    border: 1px solid rgb(var(--details-2-rgb));
     border-radius: 2px;
 
-    color: rgb(255,255,255);
+    color: rgb(var(--details-rgb));
 
     display: flex;
     justify-content: center;

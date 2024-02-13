@@ -7,14 +7,14 @@
     top: 2%;
     right: 1%;
     max-width: 83.5%;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(var(--details-rgb));
 
     padding: 5px;
 
-    border: 1px solid rgb(0,0,0);
+    border: 1px solid rgb(var(--secondary-rgb));
     border-radius: 5px;
 
-    box-shadow: 7.5px 0 11.5px -1.5px rgba(0, 0, 0, 0.5);
+    box-shadow: 9.5px 0 12.5px -1.5px rgba(var(--tertiary-rgb), 0.5);
 }
 
 .popup-content {
@@ -24,11 +24,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;  
-    color: rgb(255, 255, 255);
+    color: rgb(var(--details-2-rgb));
 }
 
 .popup-content svg {
-    color: rgb(1, 201, 127);
+    color: rgb(var(--darker-green-rgb));
     width: 8vh;
     min-width: 30px;
     max-width: 42.5px;
@@ -39,8 +39,8 @@
 }
 
 .popup-content svg:hover {
-    color: rgb(0, 231, 146);
-    box-shadow: 0px 10px 10px -9px rgb(0, 231, 146);
+    color: rgb(var(--lighter-green-rgb));
+    box-shadow: 0px 6px 7.5px -9px rgb(var(--lighter-green-rgb));
 
     transition: ease-in-out 0.2s;
 
@@ -50,7 +50,7 @@
 .popup-message {
     font-size: clamp(13px, 2.5vh, 17px);
     font-family: 'Poppins', sans-serif;
-    font-weight: 200;
+    font-weight: 300;
 
     display: inline;
     align-items: center;
