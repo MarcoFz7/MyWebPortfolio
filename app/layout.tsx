@@ -45,16 +45,24 @@ export default function RootLayout({
     setSidebarNotification(false);
   };
 
+  // Theme related
   const [layoutReady, setLayoutReady] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [ready, setReady] = useState(false);
+
   const handleProvidersReadiness = () => {
     setLayoutReady(true);
+
+    setTimeout(() => {
+      setLoaded(true);
+    }, 50);
   };
 
   return (
     <html lang="en" onClick={sidebarNotification ? undefined : handleHtmlClick}>
       <body>
         <Providers onProvidersReady={handleProvidersReadiness}>
-          {layoutReady ? (
+          {/* {layoutReady && loaded ? ( */}
             <div className='main-screen'>
               <div id="main-screen-addorns" className="main-screen-page">
                 <div id="main-content">
@@ -76,9 +84,20 @@ export default function RootLayout({
                 </div>
               </div>    
             </div>
-            ) : (
-              <div>Loading...</div>
-            )}
+            <div className='slider' style={{ top: layoutReady && loaded ? '-100vh' : '-0vh', opacity: layoutReady && loaded ? '0' : '1' }}>
+              <div className='slider-content'>
+                <span className='content-name'>Marco</span>
+                <span className='content-name'>Ferraz</span>
+              </div>
+            </div>
+            {/* ) : (
+              <div className='slider' style={{ top: layoutReady && loaded ? '-100vh' : '-0vh' }}>
+                <div className='slider-content'>
+                  <span className='content-name'>Marco</span>
+                  <span className='content-name'>Ferraz</span>
+                </div>
+              </div>
+            )} */}
         </Providers>
       </body>
     </html>

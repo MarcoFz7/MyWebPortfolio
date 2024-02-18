@@ -67,6 +67,34 @@ body {
   rgb(var(--background-start-rgb));
 }
 
+.slider {
+  position: fixed;
+  top: -0vh;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgb(245, 245, 245);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 1s cubic-bezier(0.52, -0.61, 0.47, 1.48), top 0.750s ease-out;
+
+  z-index: 8;
+}
+
+.content-name {
+  margin-left: 5px;
+  margin-right: 5px;
+  
+  font-size: clamp(15px, 4vh, 32.5px);
+  font-weight: 500;
+  color: rgba(255,255,255, 1);
+  -webkit-text-stroke-color: rgb(0,0,0);
+  -webkit-text-stroke-width: 0.025em;
+  -webkit-text-fill-color: rgb(255,255,255);
+}
+
 .main-screen {
   position: absolute;
   top: 3%;

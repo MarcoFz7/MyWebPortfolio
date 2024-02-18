@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { TbUserStar, TbUserCode, TbUserQuestion } from 'react-icons/tb'
 import { PiChatCircleDotsBold } from 'react-icons/pi'
-import ThemeSwitcher from '@/app/components/themeSwitcher/themeSwitcher';
+import ThemeSwitcher from '@/app/components/themeSwitcher/themeSwitcher'
 
 const menuMainItems=[
   {
