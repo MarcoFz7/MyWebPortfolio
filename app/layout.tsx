@@ -55,7 +55,7 @@ export default function RootLayout({
 
     setTimeout(() => {
       setLoaded(true);
-    }, 50);
+    }, 500);
   };
 
   return (
