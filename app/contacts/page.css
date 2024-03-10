@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.contacts-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-left: 1vw;
+    z-index: 1;
+}
+
+.page-header {
+    font-size: clamp(35px, 5vw, 50px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+
+    border-bottom: 2.5px solid rgb(var(--secondary-rgb));
+}
+
+.page-sub-header {
+    width: 100%;
+    height: 10%;
+    margin-top: 10px;
+}
+
+.linkedIn-btn, .gitHub-btn, .email-btn {
+    background-color: rgb(var(--tertiary-rgb));
+    padding: 5px;
+    color: rgb(var(--details-rgb));
+    font-size: max(2.7vh, 16px);
+    transition: ease-in-out 0.25s;
+    border-bottom: 1px solid rgb(var(--primary-rgb));
+}
+
+.gitHub-btn {
+    margin-left: 10px;  
+}
+
+.email-btn {
+    margin-left: 10px;
+}
+
+.gitHub-btn:hover, .linkedIn-btn:hover, .email-btn:hover {
+    background-color: rgb(var(--reserve-rgb));
+    color: rgb(var(--details-2-rgb));
+    cursor: pointer;
+}
+
+.page-presentation {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    bottom: 0px;
+    right: 0px;
+    height: 60%;
+    width: 30rem;
+    max-width: 100%;
+    overflow-y: auto;
+    overflow-x:hidden;
+    z-index: 1; 
+    padding-right: 6.5px;
+}
+
+.page-presentation > :last-child {
+    margin-top: auto;
+}
+
+.page-presentation::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(var(--primary-rgb),0.25);
+	border-radius: 10px;
+	background-color: rgba(var(--reserve-rgb),0.5);
+}
+
+.page-presentation::-webkit-scrollbar
+{
+	width: 7px;
+	background-color: rgb(var(--background-start-rgb));
+}
+
+.page-presentation::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(var(--primary-rgb),0.25);
+	background-color: rgba(var(--tertiary-rgb),0.5);
+}
