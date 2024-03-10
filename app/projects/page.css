@@ -153,7 +153,7 @@
 
 .project-item-info-name {
     text-decoration: underline;
-    font-size: max(3.3vh, 20px);
+    font-size: clamp(20px, 3.3vh, 22.5px);
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     color: rgb(var(--secondary-rgb));
@@ -165,18 +165,18 @@
 }
 
 .project-item-info-date {
-    font-size: max(2.3vh, 12px);
+    font-size: clamp(14px, 2.3vh, 16px);
     margin-right: 7px;
     font-family: 'Dancing Script', cursive;
     font-weight: 600;
 }
 
 .project-item-info-separator {
-    font-size: max(2.3vh, 12px);
+    font-size: clamp(14px, 2.3vh, 16px);
 }
 
 .project-item-info-status {
-    font-size: max(2.3vh, 12px);
+    font-size: clamp(14px, 2.3vh, 16px);
     margin-left: 10px;
     font-family: 'Dancing Script', cursive;
     font-weight: 600;
@@ -189,7 +189,7 @@
 }
 
 .project-item-info-tech {
-    font-size: max(2.5vh, 14px);
+    font-size: clamp(16px, 2.5vh, 18px);
     font-family: 'Poppins', sans-serif;
     font-weight: 300;    
 }
@@ -197,12 +197,12 @@
 .project-item-info-techs-icon {
     margin-left: 7px;
     color: rgb(var(--secondary-rgb));
-    font-size: max(2.7vh, 16px);
+    font-size: clamp(17px, 2.7vh, 19px);
 }
 
 .project-item-info-techs-icon:hover {
     color: rgb(var(--details-2-rgb));
-    font-size: max(2.8vh, 17px);
+    font-size: clamp(18px, 2.8vh, 20px);
     cursor: pointer;
 }
 
