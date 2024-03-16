@@ -46,7 +46,7 @@ const ContactForm = ({ emailBtnClicked, onEmailBtnProcessed } : ContactFormProps
   const sendEmail = (event: any) => {  
     event.persist();
     event.preventDefault();
-    console.log(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
+    console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
 
     console.log(needRecaptcha);
     if (!needRecaptcha) {
