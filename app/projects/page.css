@@ -28,7 +28,7 @@
     align-items: flex-end;
     bottom: 0px;
     right: 0px;
-    height: 65%;
+    height: 70%;
     width: 100%;
     overflow-y: auto;
     z-index: 1;
@@ -44,7 +44,7 @@
 .projects-list::-webkit-scrollbar
 {
 	width: 7px;
-	background-color: rgb(var(--background-start-rgb));
+	background-color: rgba(var(--background-start-rgb), 0);
 }
 
 .projects-list::-webkit-scrollbar-thumb

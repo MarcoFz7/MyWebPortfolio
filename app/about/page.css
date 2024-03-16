@@ -95,7 +95,7 @@
 .page-presentation::-webkit-scrollbar
 {
 	width: 7px;
-	background-color: rgb(var(--background-start-rgb));
+	background-color: rgba(var(--background-start-rgb), 0);
 }
 
 .page-presentation::-webkit-scrollbar-thumb
