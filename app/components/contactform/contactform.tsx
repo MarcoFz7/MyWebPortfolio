@@ -1,9 +1,15 @@
 import './contactform.css'
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { IoSend } from 'react-icons/io5';
+import ReCAPTCHA from 'react-google-recaptcha';
 
-const ContactForm = () => {
+interface ContactFormProps {
+    emailBtnClicked: boolean;
+    onEmailBtnProcessed: () => void;
+}
+
+const ContactForm = ({ emailBtnClicked, onEmailBtnProcessed } : ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [stateMessage, setStateMessage] = useState("");
 
@@ -11,6 +17,23 @@ const ContactForm = () => {
   const [needsUserEmail, setNeedsUserEmail] = useState(false);
   const [userMessage, setUserMessage] = useState("");
   const [needsUserMessage, setNeedsUserMessage] = useState(false);
+
+  const [isFormHighlighted, setIsFormHighlighted] = useState(false);
+
+  const [needRecaptcha, setNeedRecaptcha] = useState(true);
+  let recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  useEffect(() => {
+    if (emailBtnClicked) {
+      setIsFormHighlighted(true);
+
+      setTimeout(() => {
+        setIsFormHighlighted(false);
+      }, 500);
+
+      onEmailBtnProcessed();
+    }
+  }, [emailBtnClicked, onEmailBtnProcessed]);
 
   const handleUserEmail = (event: any) => {
     setUserEmail(event?.target.value);
@@ -20,57 +43,73 @@ const ContactForm = () => {
     setUserMessage(event?.target.value);
   }
 
-  const sendEmail = (event: any) => {
+  const sendEmail = (event: any) => {  
     event.persist();
     event.preventDefault();
-    if(userEmail != "" && userMessage != "") {
-        setIsSubmitting(true);
-        setNeedsUserEmail(false);
-        setNeedsUserMessage(false);
+    console.log(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
 
-        emailjs.sendForm(
-            "service_7jmfr1b",
-            "template_d2pevgg",
-            event.currentTarget.closest('form'),
-            "bygrXsuYEhUOtdzR6z"
-        )
-        .then(
-            () => {
-            setStateMessage('Message sent!');
-                setIsSubmitting(false);
-                setTimeout(() => {
-                    setStateMessage("");
-                }, 3000);
-                },
-                (error) => {
-                console.log(error);
-                setStateMessage('Something went wrong!');
+    console.log(needRecaptcha);
+    if (!needRecaptcha) {
+        if(userEmail != "" && userMessage != "") {
+            setIsSubmitting(true);
+            setNeedsUserEmail(false);
+            setNeedsUserMessage(false);
+
+            emailjs.sendForm(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
+                event.currentTarget.closest('form'),
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY_ID,
+            )
+            .then(
+                () => {
+                    setStateMessage('Message sent!');
                     setIsSubmitting(false);
+                    if (recaptchaRef.current) {
+                        recaptchaRef.current.reset();
+                    }
+                    setNeedRecaptcha(true);
                     setTimeout(() => {
-                        setStateMessage("");
-                    }, 3000); 
-                }
-            );
+                        setStateMessage("");   
+                    }, 3000);
+                    },
+                    (error) => {
+                    //console.log(error);
+                        setStateMessage('Something went wrong!');
+                        setIsSubmitting(false);
+                        setTimeout(() => {
+                            setStateMessage("");
+                        }, 3000); 
+                    }
+                );
 
-            // Clears the form after sending the email
-            event.currentTarget.closest('form').reset();
-            setUserEmail("");
-            setUserMessage("");
+                // Clears the form after sending the email
+                event.currentTarget.closest('form').reset();
+                setUserEmail("");
+                setUserMessage("");
 
-        } else {
-            if (userEmail == "" && userMessage == "") {
-                setNeedsUserEmail(true);
-                setNeedsUserMessage(true);
             } else {
-                if (userEmail == "") {
+                if (userEmail == "" && userMessage == "") {
                     setNeedsUserEmail(true);
-                    setNeedsUserMessage(false);
-                } else {
                     setNeedsUserMessage(true);
-                    setNeedsUserEmail(false);
+                } else {
+                    if (userEmail == "") {
+                        setNeedsUserEmail(true);
+                        setNeedsUserMessage(false);
+                    } else {
+                        setNeedsUserMessage(true);
+                        setNeedsUserEmail(false);
+                    }
                 }
-            }
-        }
+            }    
+        } else {
+            setStateMessage('You are a robot!');
+            setIsSubmitting(false);
+            setTimeout(() => {
+                setStateMessage("");          
+            }, 3000);
+            setNeedRecaptcha(true);
+        }  
     };
 
     return (
@@ -81,29 +120,33 @@ const ContactForm = () => {
                     <label className='form-label' id='form-name'>
                         Name
                     </label>
-                    <input className='form-input' type="text" name="userName" placeholder='ex. Marco Ferraz'/>
+                    <input className={`form-input${isFormHighlighted ? '-highlighted' : ''}`} type="text" name="userName" placeholder='ex. Marco Ferraz'/>
                     <div className='form-label-space'>
                         <label className='form-label'>
                             Email&nbsp;<strong>*</strong>
                         </label>
-                        {needsUserEmail && (
-                            <label className='form-required'>
-                                Required!
-                            </label>
-                         )}
+                        <label className={`form-required${(needsUserEmail || isFormHighlighted) ? '-highlighted' : ''}`}>
+                            Required!
+                        </label>
                     </div>
-                    <input className='form-input' type="email" name="userEmail" placeholder='ex. mymail@gmail.com' onBlur={handleUserEmail}/>
+                    <input className={`form-input${isFormHighlighted ? '-highlighted' : ''}`} type="email" name="userEmail" placeholder='ex. mymail@gmail.com' onBlur={handleUserEmail}/>
                     <div className='form-label-space'>
                         <label className='form-label'>
                             Message&nbsp;<strong>*</strong>
                         </label>
-                        {needsUserMessage && (
-                            <label className='form-required'>
-                                Required!
-                            </label>
-                        )}
+                        <label className={`form-required${(needsUserMessage || isFormHighlighted) ? '-highlighted' : ''}`}>
+                            Required!
+                        </label>
                     </div>
-                    <textarea className='form-input' id='form-message' name="message" placeholder='ex. Hello World...' onBlur={handleUserMessage}/>
+                    <textarea className={`form-input${isFormHighlighted ? '-highlighted' : ''}`} id='form-message' name="message" placeholder='ex. Hello World...' onBlur={handleUserMessage}/>
+                    <ReCAPTCHA
+                        className='g-recaptcha'
+                        ref={recaptchaRef}
+                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}                 
+                        onChange={() => setNeedRecaptcha(false)}
+                        hl="en"
+                        data-size="compact"
+                    />
                     <div className='form-send-space'>
                         {stateMessage && <p className='form-send-response'>{stateMessage}</p>}
                         <button className='form-send-btn' type="submit" disabled={isSubmitting}>
@@ -112,7 +155,7 @@ const ContactForm = () => {
                         </button>
                     </div>
                 </form>
-            </div>
+            </div>  
         </div>
     );
 };
