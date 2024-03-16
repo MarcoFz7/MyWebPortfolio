@@ -23,7 +23,7 @@
     margin-top: 10px;
 }
 
-.linkedIn-btn, .gitHub-btn, .email-btn {
+.linkedIn-btn, .instagram-btn, .email-btn {
     background-color: rgb(var(--tertiary-rgb));
     padding: 5px;
     color: rgb(var(--details-rgb));
@@ -32,7 +32,7 @@
     border-bottom: 1px solid rgb(var(--primary-rgb));
 }
 
-.gitHub-btn {
+.instagram-btn {
     margin-left: 10px;  
 }
 
@@ -40,10 +40,9 @@
     margin-left: 10px;
 }
 
-.gitHub-btn:hover, .linkedIn-btn:hover, .email-btn:hover {
+.instagram-btn:hover, .linkedIn-btn:hover, .email-btn:hover {
     background-color: rgb(var(--reserve-rgb));
     color: rgb(var(--details-2-rgb));
-    cursor: pointer;
 }
 
 .page-presentation {
@@ -51,18 +50,26 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    bottom: 0px;
-    right: 0px;
-    height: 60%;
+    bottom: 0;
+    right: 0;
+    height: 70%;
     width: 30rem;
     max-width: 100%;
     overflow-y: auto;
     overflow-x:hidden;
     z-index: 1; 
     padding-right: 6.5px;
+    margin-top: auto;
 }
 
-.page-presentation > :last-child {
+/* This can be done in a better way!*/
+@media only screen and (max-height: 360px) {
+    .page-presentation {
+        height: 64%;
+    }
+}
+
+.page-presentation > :first-child {
     margin-top: auto;
 }
 
@@ -76,7 +83,7 @@
 .page-presentation::-webkit-scrollbar
 {
 	width: 7px;
-	background-color: rgb(var(--background-start-rgb));
+	background-color: rgba(var(--background-start-rgb), 0);
 }
 
 .page-presentation::-webkit-scrollbar-thumb
@@ -85,3 +92,21 @@
 	-webkit-box-shadow: inset 0 0 6px rgba(var(--primary-rgb),0.25);
 	background-color: rgba(var(--tertiary-rgb),0.5);
 }
+
+.intro-message {
+    font-size: clamp(16px, 1.8vw, 20px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+
+    margin-right: auto;
+    margin-top: auto;
+
+    margin-left: 2.5px;
+    margin-bottom: 4px;
+}
+
+.intro-message strong {
+    color: rgb(var(--primary-rgb));
+    font-weight: bold;
+}
+
