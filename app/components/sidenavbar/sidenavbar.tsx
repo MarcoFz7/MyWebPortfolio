@@ -80,20 +80,48 @@ export default function SideNavBar({ onItemClick, onLayoutNotification, onSideba
 
     const handleMainItemClick = (itemName: string, index: number) => {
       onItemClick(itemName);
-      setClickedMainIndex(index);
       setClickedSecondaryIndex(-1);
+
+      // Check if is small screen (width)
+      // if is small screen 
+      if (window.innerWidth <= 825 && index != clickedMainIndex) {
+        toggleSidebar();
+        
+        resetSidebarLogic();
+      }
+
+      setClickedMainIndex(index);
     };
 
     const handleSecondaryItemClick = (itemName: string, index: number) => {
       onItemClick(itemName);
-      setClickedSecondaryIndex(index);
       setClickedMainIndex(-1);
+
+      // Check if is small screen (width)
+      // if is small screen 
+      if (window.innerWidth <= 825 && index != clickedSecondaryIndex) {
+        toggleSidebar();
+        
+        resetSidebarLogic();
+      }
+
+      setClickedSecondaryIndex(index);
     };
 
     const toggleSidebar = () => {
       setIsSidebarOpen(!isSidebarOpen);
       onSidebarNotification();
     };
+
+    const resetSidebarLogic = () => {
+      // Needed since the click is still on the sidebar (generally doesn't close)
+      const button = document.querySelector('.openclose-sidebar-btn') as HTMLButtonElement;
+      if (button) {
+        // reset button
+        button.click();
+        button.blur();
+      }
+    }
 
     return (
         <div className='sidebar-panel'>
