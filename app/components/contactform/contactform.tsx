@@ -20,7 +20,8 @@ const ContactForm = ({ emailBtnClicked, onEmailBtnProcessed } : ContactFormProps
 
   const [isFormHighlighted, setIsFormHighlighted] = useState(false);
 
-  const [needRecaptcha, setNeedRecaptcha] = useState(true);
+  // Service disabled: use useState(true) if service enabled
+  const [needRecaptcha, setNeedRecaptcha] = useState(false);
   let recaptchaRef = useRef<ReCAPTCHA>(null);
 
   useEffect(() => {
@@ -46,9 +47,7 @@ const ContactForm = ({ emailBtnClicked, onEmailBtnProcessed } : ContactFormProps
   const sendEmail = (event: any) => {  
     event.persist();
     event.preventDefault();
-    console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
 
-    console.log(needRecaptcha);
     if (!needRecaptcha) {
         if(userEmail != "" && userMessage != "") {
             setIsSubmitting(true);
@@ -73,8 +72,8 @@ const ContactForm = ({ emailBtnClicked, onEmailBtnProcessed } : ContactFormProps
                         setStateMessage("");   
                     }, 3000);
                     },
-                    (error) => {
-                    //console.log(error);
+                    (error: any) => {
+                        // FOR DEBUG: console.log(error)
                         setStateMessage('Something went wrong!');
                         setIsSubmitting(false);
                         setTimeout(() => {
@@ -139,14 +138,15 @@ const ContactForm = ({ emailBtnClicked, onEmailBtnProcessed } : ContactFormProps
                         </label>
                     </div>
                     <textarea className={`form-input${isFormHighlighted ? '-highlighted' : ''}`} id='form-message' name="message" placeholder='ex. Hello World...' onBlur={handleUserMessage}/>
-                    <ReCAPTCHA
+                    {/* Service working (if enabled)! Remove comment to enable recaptcha validation and change recaptcha useState to true! */}
+                    {/* <ReCAPTCHA
                         className='g-recaptcha'
                         ref={recaptchaRef}
                         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}                 
                         onChange={() => setNeedRecaptcha(false)}
                         hl="en"
                         data-size="compact"
-                    />
+                    /> */}
                     <div className='form-send-space'>
                         {stateMessage && <p className='form-send-response'>{stateMessage}</p>}
                         <button className='form-send-btn' type="submit" disabled={isSubmitting}>
