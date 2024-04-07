@@ -12,32 +12,6 @@ import Popup from '../components/popup/popup';
 const Page = () => {
   const [projects, setProjects] = useState<GitHubProjectDTO[]>([]);
 
-  /*useEffect(() => {
-    const fetchData = async () => {
-      const projects = await GitHubProjectsService.getAllProjects();
-      setProjects(projects);
-    };
-
-    fetchData();
-    setHasFetched(true);
-  }, []);
-
-  useEffect(() => {
-    const fetchCommits = async () => {
-      const projectsWithCommits = await Promise.all(
-        projects.map(async (project) => {
-          const projectCommits = await GitHubProjectsService.getProjectCommits(project.name);
-          return { ...project, projectCommits };
-        })
-      );
-        
-      console.log("Passou");
-      setProjects(projectsWithCommits);
-    };
-  
-    fetchCommits();
-  }, [hasFetched]);*/
-
   useEffect(() => {
     const fetchDataAndCommits = async () => {
       const projects = await GitHubProjectsService.getAllProjects();
