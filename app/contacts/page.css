@@ -52,7 +52,7 @@
     align-items: flex-end;
     bottom: 0;
     right: 0;
-    height: 70%;
+    height: 80%;
     width: 30rem;
     max-width: 100%;
     overflow-y: auto;
@@ -63,9 +63,24 @@
 }
 
 /* This can be done in a better way!*/
-@media only screen and (max-height: 360px) {
+@media only screen and (max-height: 345px) {
     .page-presentation {
-        height: 64%;
+        height: 57.5%;
+    }
+}
+@media only screen and (min-height: 346px) and  (max-height: 375px) {
+    .page-presentation {
+        height: 60%;
+    }
+}
+@media only screen and (min-height: 376px) and (max-height: 450px) {
+    .page-presentation {
+        height: 65%;
+    }
+}
+@media only screen and (min-height: 451px) and (max-height: 600px) {
+    .page-presentation {
+        height: 70.5%;
     }
 }
 
