@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Monoton:wght@600&display=swap');
+
+.experience-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-left: 1vw;
+    overflow: hidden;
+}
+
+.page-header {
+    font-size: clamp(35px, 5vw, 50px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+
+    border-bottom: 2.5px solid rgb(var(--secondary-rgb));
+}
+
+.experiences-list-timeline {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    bottom: 0px;
+    right: 0px;
+    max-height: 82.5%;
+    width: 100%;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.experiences-list-timeline::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(var(--primary-rgb),0.25);
+	border-radius: 10px;
+	background-color: rgba(var(--reserve-rgb),0.5);
+}
+
+.experiences-list-timeline::-webkit-scrollbar
+{
+	width: 7px;
+	background-color: rgba(var(--background-start-rgb), 0);
+}
+
+.experiences-list-timeline::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(var(--primary-rgb),0.25);
+	background-color: rgba(var(--tertiary-rgb),0.5);
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 2px;
+    background-color: #b9b9b9;
+}
+
+.timeline-item:first-child {
+    margin-top: auto !important;
+}
+.timeline-item:last-child {
+    margin-bottom: 5px !important;
+    padding-bottom: 0;
+}
+.timeline-item:last-child::after {
+    content: none;
+}
+
+.timeline {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 8.75px;
+}
+
+.timeline li {
+    position: relative;
+    padding: 10px 8.75px 20px 0px;
+    background-color: rgba(0,0,0,0);
+    border-left: 3px solid rgb(var(--weaker-reserve-rgb));
+}
+
+.timeline li:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-item-header {
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline-item-role {
+    margin-left: 72.5px;
+    padding-top: 7px;
+    text-decoration: underline;
+    font-size: clamp(16px, 2.6vh, 18px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgb(var(--secondary-rgb));
+}
+
+@media (min-height: 665px) {
+    .timeline-item-role {
+        padding-top: 6px;
+    }
+  }
+
+.timeline-item-date {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 12px;
+    margin-right: 7px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+}
+
+.timeline-item-date::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -26.5px; 
+    transform: translateY(-50%);
+    width: 20px; 
+    height: 20px;
+    background-color: rgb(var(--weaker-reserve-rgb)); 
+    border-radius: 50%; 
+    z-index: 7;
+}
+
+.timeline-item-date::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -23.5px; 
+    transform: translateY(-50%);
+    width: 14px; 
+    height: 14px;
+    background-color: rgb(var(--primary-rgb)); 
+    border-radius: 50%;
+    z-index: 8;
+}
+
+.timeline-item-details {
+    margin-left: 72.5px;
+    font-size: clamp(12px, 2.2vh, 14px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;    
+}
+
+.timeline-item-company {
+    margin-right: 1px;
+}
+
+.timeline-item-client {
+    margin-left: 1px;
+    font-weight: 300;
+}
+
+.timeline-item-stack-list {
+    margin-left: 72.5px;
+    font-size: clamp(11px, 2vh, 13px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;  
+    margin-top: 2.5px;  
+}
+
+.timeline-item-stack-tech {
+    padding: 1px 5px 1px 5px;
+    margin-right: 2.5px;
+    margin-bottom: 2.5px;
+    background-color: rgb(var(--tertiary-rgb));
+    color: rgb(var(--details-rgb));
+    border: 1px solid rgb(var(--primary-rgb));
+    border-radius: 2.5px;
+    display: inline-block;
+    width: fit-content;
+}
+
+
+
+
+
+  
