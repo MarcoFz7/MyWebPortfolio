@@ -11,6 +11,7 @@
     height: 100%;
     padding-left: 1vw;
     overflow: hidden;
+    z-index: 1;
 }
 
 .page-header {
@@ -19,6 +20,26 @@
     font-weight: 200;
 
     border-bottom: 2.5px solid rgb(var(--secondary-rgb));
+}
+
+.page-sub-header {
+    width: 100%;
+    height: 10%;
+    margin-top: 10px;
+}
+
+.linkedIn-btn {
+    background-color: rgb(var(--tertiary-rgb));
+    padding: 5px;
+    color: rgb(var(--details-rgb));
+    font-size: max(2.7vh, 16px);
+    transition: ease-in-out 0.25s;
+    border-bottom: 1px solid rgb(var(--primary-rgb));
+}
+
+.linkedIn-btn:hover {
+    background-color: rgb(var(--reserve-rgb));
+    color: rgb(var(--details-2-rgb));
 }
 
 .experiences-list-timeline {
@@ -32,6 +53,33 @@
     width: 100%;
     overflow-y: auto;
     z-index: 1;
+}
+
+/* This can be done in a better way!*/
+@media only screen and (max-height: 374px) {
+    .experiences-list-timeline {
+        max-height: 63%;
+    }
+}
+@media only screen and (min-height: 375px) and  (max-height: 410px) {
+    .experiences-list-timeline {
+        max-height: 66%;
+    }
+}
+@media only screen and (min-height: 411px) and  (max-height: 495px) {
+    .experiences-list-timeline {
+        max-height: 70%;
+    }
+}
+@media only screen and (min-height: 496px) and (max-height: 600px) {
+    .experiences-list-timeline {
+        max-height: 74.5%;
+    }
+}
+@media only screen and (min-height: 601px) and (max-height: 700px) {
+    .experiences-list-timeline {
+        max-height: 78.5%;
+    }
 }
 
 .experiences-list-timeline::-webkit-scrollbar-track
@@ -60,17 +108,6 @@
     flex-direction: row;
 }
 
-.timeline-item::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30%;
-    height: 2px;
-    background-color: #b9b9b9;
-}
-
 .timeline-item:first-child {
     margin-top: auto !important;
 }
@@ -90,7 +127,7 @@
 
 .timeline li {
     position: relative;
-    padding: 10px 8.75px 20px 0px;
+    padding: 10px 5px 0px 0px;
     background-color: rgba(0,0,0,0);
     border-left: 3px solid rgb(var(--weaker-reserve-rgb));
 }
@@ -112,27 +149,36 @@
 }
 
 .timeline-item-role {
-    margin-left: 72.5px;
-    padding-top: 7px;
+    margin-left: 76.25px;
+    padding-top: 6px;
     text-decoration: underline;
-    font-size: clamp(16px, 2.6vh, 18px);
+    font-size: clamp(18px, 2.2vh, 20px);
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     color: rgb(var(--secondary-rgb));
 }
 
-@media (min-height: 665px) {
+
+/*@media only screen and (min-height: 665px) and (max-height: 899px) {
     .timeline-item-role {
-        padding-top: 6px;
+        padding-top: 5px;
     }
-  }
+}*/
+@media only screen and (min-height: 900px) {
+    .timeline-item-role {
+        padding-top: 5px;
+    }
+
+    .timeline-item-date::after {
+        line-height: 1.2 !important;
+    }
+}
 
 .timeline-item-date {
     position: absolute;
     top: 10px;
     left: 15px;
-    font-size: 12px;
-    margin-right: 7px;
+    font-size: clamp(12px, 1.5vh, 14px);
     font-family: 'Dancing Script', cursive;
     font-weight: 600;
 }
@@ -141,36 +187,50 @@
     content: '';
     position: absolute;
     top: 50%;
-    left: -26.5px; 
+    left: -27px; 
     transform: translateY(-50%);
-    width: 20px; 
-    height: 20px;
+    width: 22px; 
+    height: 22px;
     background-color: rgb(var(--weaker-reserve-rgb)); 
     border-radius: 50%; 
     z-index: 7;
 }
 
 .timeline-item-date::after {
-    content: '';
+    content: '\2139';
+    color: rgb(var(--details-rgb));
     position: absolute;
     top: 50%;
-    left: -23.5px; 
+    left: -24px; 
     transform: translateY(-50%);
-    width: 14px; 
-    height: 14px;
+    width: 16px; 
+    height: 16px;
     background-color: rgb(var(--primary-rgb)); 
     border-radius: 50%;
     z-index: 8;
+
+    /* Center the icon in the element itself */
+    text-align: center; 
+    line-height: 1.275;
+
+    transition: 0.25s ease;
+}
+
+.timeline-item-date:hover::after {
+    background-color: rgb(var(--weaker-reserve-rgb));
+    color: rgb(var(--details-2-rgb));
+    cursor: pointer;
 }
 
 .timeline-item-details {
-    margin-left: 72.5px;
-    font-size: clamp(12px, 2.2vh, 14px);
+    margin-left: 76.25px;
+    font-size: clamp(13px, 1.75vh, 14px);
     font-family: 'Poppins', sans-serif;
     font-weight: 500;    
 }
 
 .timeline-item-company {
+    font-size: clamp(14px, 2vh, 16px);
     margin-right: 1px;
 }
 
@@ -180,8 +240,8 @@
 }
 
 .timeline-item-stack-list {
-    margin-left: 72.5px;
-    font-size: clamp(11px, 2vh, 13px);
+    margin-left: 76.25px;
+    font-size: clamp(12px, 1.9vh, 14px);
     font-family: 'Poppins', sans-serif;
     font-weight: 300;  
     margin-top: 2.5px;  
@@ -199,7 +259,62 @@
     width: fit-content;
 }
 
+.timeline-progression {
+    position: relative;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    font-size: clamp(10px, 1.5vh, 14px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;    
+}
+    .timeline-progression.role {
+        margin-bottom: -15px;
+        color: rgb(var(--weaker-reserve-rgb));
+    }
+    .timeline-progression.company {
+        margin-bottom: -5px;
+        color: rgb(var(--secondary-rgb));
+    }
 
+.timeline-progression::before {
+    content: '';
+    position: relative;
+    top: 45%;
+    right: 5px;
+    height: 2px; 
+    z-index: 0; 
+}
+    .timeline-progression.role::before {
+        width: 10px;
+        background-color: rgba(var(--weaker-reserve-rgb), 0.75); 
+    }
+    .timeline-progression.company::before {
+        width: 20px;
+        background-color: rgba(var(--secondary-rgb), 0.75); 
+    }
+
+.timeline-progression::after {
+    content: '';
+    position: relative;
+    top: 45%;
+    left: 5px;
+    height: 2px; 
+    z-index: 0; 
+}
+    .timeline-progression.role::after {
+        width: 10px;
+        background-color: rgba(var(--weaker-reserve-rgb), 0.75); 
+    }
+    .timeline-progression.company::after {
+        width: 20px;
+        background-color: rgba(var(--secondary-rgb), 0.75); 
+    }
+
+.progression-text {
+    position: relative;
+    z-index: 1;
+}
 
 
 
