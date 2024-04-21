@@ -21,11 +21,11 @@ export default function ProjectImgViewer({ imagesToShow, projectName, projectIma
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const handleNextImage = () => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesToShow.length);
+        setCurrentImageIndex((prevIndex) => (prevIndex - 1 + imagesToShow.length) % imagesToShow.length);
     };
 
     const handlePreviousImage = () => {
-        setCurrentImageIndex((prevIndex) => (prevIndex - 1 + imagesToShow.length) % imagesToShow.length);
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesToShow.length);
     };
 
     return (
