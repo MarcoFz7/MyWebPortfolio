@@ -36,11 +36,10 @@
     transition: ease-in-out 0.25s;
     border-bottom: 1px solid rgb(var(--primary-rgb));
 }
-
-.linkedIn-btn:hover {
-    background-color: rgb(var(--reserve-rgb));
-    color: rgb(var(--details-2-rgb));
-}
+    .linkedIn-btn:hover {
+        background-color: rgb(var(--reserve-rgb));
+        color: rgb(var(--details-2-rgb));
+    }
 
 .experiences-list-timeline {
     position: absolute;
@@ -53,6 +52,8 @@
     width: 100%;
     overflow-y: auto;
     z-index: 1;
+
+    max-width: fit-content;
 }
 
 /* This can be done in a better way!*/
@@ -146,11 +147,12 @@
 
     display: flex;
     flex-direction: row;
+
+    align-items: center;
 }
 
 .timeline-item-role {
-    margin-left: 76.25px;
-    padding-top: 6px;
+    margin-left: 85px;
     text-decoration: underline;
     font-size: clamp(18px, 2.2vh, 20px);
     font-family: 'Poppins', sans-serif;
@@ -158,72 +160,47 @@
     color: rgb(var(--secondary-rgb));
 }
 
-
-/*@media only screen and (min-height: 665px) and (max-height: 899px) {
-    .timeline-item-role {
-        padding-top: 5px;
-    }
-}*/
-@media only screen and (min-height: 900px) {
-    .timeline-item-role {
-        padding-top: 5px;
-    }
-
-    .timeline-item-date::after {
-        line-height: 1.2 !important;
-    }
-}
-
 .timeline-item-date {
     position: absolute;
-    top: 10px;
-    left: 15px;
+    left: 16px;
     font-size: clamp(12px, 1.5vh, 14px);
     font-family: 'Dancing Script', cursive;
     font-weight: 600;
+    padding-top: 0;
+}
+@media only screen and (min-height: 830px) {
+    .timeline-item-date::after {
+        padding-top: 1.5px !important;
+    }
 }
 
 .timeline-item-date::before {
     content: '';
     position: absolute;
+    left: -28px; 
     top: 50%;
-    left: -27px; 
     transform: translateY(-50%);
     width: 22px; 
     height: 22px;
     background-color: rgb(var(--weaker-reserve-rgb)); 
-    border-radius: 50%; 
     z-index: 7;
 }
 
 .timeline-item-date::after {
-    content: '\2139';
+    content: '';
     color: rgb(var(--details-rgb));
     position: absolute;
+    left: -25px; 
     top: 50%;
-    left: -24px; 
     transform: translateY(-50%);
     width: 16px; 
     height: 16px;
     background-color: rgb(var(--primary-rgb)); 
-    border-radius: 50%;
-    z-index: 8;
-
-    /* Center the icon in the element itself */
-    text-align: center; 
-    line-height: 1.275;
-
-    transition: 0.25s ease;
-}
-
-.timeline-item-date:hover::after {
-    background-color: rgb(var(--weaker-reserve-rgb));
-    color: rgb(var(--details-2-rgb));
-    cursor: pointer;
+    z-index: 8;  
 }
 
 .timeline-item-details {
-    margin-left: 76.25px;
+    margin-left: 85px;
     font-size: clamp(13px, 1.75vh, 14px);
     font-family: 'Poppins', sans-serif;
     font-weight: 500;    
@@ -240,12 +217,16 @@
 }
 
 .timeline-item-stack-list {
-    margin-left: 76.25px;
+    margin-left: 85px;
     font-size: clamp(12px, 1.9vh, 14px);
     font-family: 'Poppins', sans-serif;
     font-weight: 300;  
     margin-top: 2.5px;  
+    max-width: fit-content;
 }
+    .timeline-item-stack-list .timeline-item-stack-tech:last-child {
+        margin-bottom: 1px;
+    }
 
 .timeline-item-stack-tech {
     padding: 1px 5px 1px 5px;
@@ -256,12 +237,52 @@
     border: 1px solid rgb(var(--primary-rgb));
     border-radius: 2.5px;
     display: inline-block;
-    width: fit-content;
+}
+
+.timeline-extra-info {
+    margin-left: 50px;
+    transition: height 0.3s ease;
+}
+
+.timeline-extra-info .timeline-item-stack-list {
+    margin-left: 35px;
+}
+
+.timeline-description {
+    margin-top: 5px;
+}
+
+.timeline-description-point {
+    display: inline-block;
+    font-size: clamp(12px, 1.9vh, 14px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;  
+}
+
+.timeline-description-point:before {
+    margin-left: 42.5px;
+    content: '\2022'; /* Unicode character for bullet point */
+    position: absolute;
+    left: 0;     
+}
+
+.timeline-show-extrainfo {
+    margin-left: 85px;
+    margin-top: 2.5px;
+    font-size: clamp(12px, 2vh, 14px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;    
+}
+
+.timeline-show-extrainfo:hover {
+    cursor: pointer;
+    color: rgb(var(--primary-rgb));
 }
 
 .timeline-progression {
     position: relative;
     margin-top: 5px;
+    margin-bottom: 5px;
     display: flex;
     justify-content: center;
     font-size: clamp(10px, 1.5vh, 14px);
@@ -269,11 +290,11 @@
     font-weight: bolder;    
 }
     .timeline-progression.role {
-        margin-bottom: -15px;
+        margin-bottom: -10px;
         color: rgb(var(--weaker-reserve-rgb));
     }
     .timeline-progression.company {
-        margin-bottom: -5px;
+        margin-bottom: 0px;
         color: rgb(var(--secondary-rgb));
     }
 
