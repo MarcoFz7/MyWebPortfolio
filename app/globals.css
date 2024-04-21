@@ -14,7 +14,7 @@
   --background-start-rgb: 245, 245, 245;
   --background-end-rgb: 210, 210, 210;
   --min-height: 335px !important;
-  --min-width: 265px !important;
+  --min-width: 280px !important;
   height: 100%;
   min-height: var(--min-height);
   min-width: var(--min-width);
