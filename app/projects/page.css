@@ -149,6 +149,8 @@
 .project-item-info {
     display: flex;
     flex-direction: column; 
+    width: 100%;
+    max-width: fit-content;
 }
 
 .project-item-info-name {
