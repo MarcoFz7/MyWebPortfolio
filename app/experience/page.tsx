@@ -94,11 +94,22 @@ const Page = () => {
   const handleShowMore = (index: number) => {
     setShowIndex(prevState => [...prevState, index]);
     console.log(index);
+
+    setTimeout(() => {
+      focusOnShowLess(index);
+    }, 250);
   }
 
   const handleShowLess = (index: number) => {
     setShowIndex(prevState => prevState.filter(item => item !== index));
     console.log(index);
+  }
+
+  const focusOnShowLess = (index: number) => {
+    const showLess = document.querySelectorAll('.timeline-description')[index];
+
+    // Scroll the element into view
+    showLess.scrollIntoView({ behavior: 'smooth' });
   }
 
   /*useEffect(() => {
