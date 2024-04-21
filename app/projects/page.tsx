@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import './page.css';
 import { FaGithub } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 import { GitHubProjectDTO } from '../models/githubprojectDTO';
 import { GitHubProjectsService } from '../services/githubprojectsService';
 import { GitHubProjectCommitsDTO } from '../models/githubprojectscommitsDTO';
@@ -102,10 +103,6 @@ const Page = () => {
     let numberOfImages = 0;
 
     switch (projectName) {
-      case "MyWebPortfolio":
-        setClickedPhotoRelatedImages(["/next.svg", "/vercel.svg"]);
-        numberOfImages = 2;
-        break;
       case "MyLifestylePal":
         setClickedPhotoRelatedImages([]);
         numberOfImages = 0;
@@ -124,6 +121,15 @@ const Page = () => {
       setProjectImageClicked("flex");
     }
   };
+
+  const handleProjectItemMainImage = (projectName: string): string => {
+    switch (projectName) {
+      case "MyLifestylePal":
+        return "/next.svg";
+      default:
+        return "/next.svg";     
+    }
+  }
 
   const resetProjectImageClicked = () => {
     setProjectImageClicked("none");
@@ -147,11 +153,20 @@ const Page = () => {
 
         {projects.map((project) => (
           <div className="project-item" key={project.name}>
+            { project.name != "MyWebPortfolio" ?
             <div className="project-item-image">
-                  <img src="/next.svg" alt={`${project.name} image loading!`} className='project-item-image-frame' onClick={() => handleProjectImageClick(project.name)}></img>             
+              <img src={handleProjectItemMainImage(project.name)} alt={`${project.name} image loading!`} className='project-item-image-frame' onClick={() => handleProjectImageClick(project.name)}></img>             
             </div>
+            : null}    
             <div className="project-item-info">
-              <span className='project-item-info-name'> {project.name} </span>
+              <span className='project-item-info-name'> 
+              { project.name == "MyWebPortfolio" ?
+                <div className="project-item-self-icon" onClick={() => handleGithubClick(project.name)}>
+                  <FaLocationDot/>
+                </div>
+                : null}    
+                {project.name} 
+              </span>
               <div className='project-item-info-state'>
                 <span className='project-item-info-date'> {project.created_at} </span>
                 <span className='project-item-info-separator'>|</span>

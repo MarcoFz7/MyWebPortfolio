@@ -139,6 +139,11 @@
         margin-right: 0px; 
         margin-bottom: 10px;
     }
+
+    .project-item-info {
+        position: sticky;
+        left: 100%;
+    }
 }
 
 .project-item-image-frame {
@@ -151,6 +156,7 @@
     flex-direction: column; 
     width: 100%;
     max-width: fit-content;
+    margin-top: auto;
 }
 
 .project-item-info-name {
@@ -159,6 +165,18 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     color: rgb(var(--secondary-rgb));
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+}
+
+.project-item-self-icon {
+    margin-left: -23px;
+    margin-right: 5px;
+    color: rgb(var(--secondary-rgb));
+    font-size: clamp(15px, 2.7vh, 18px);
 }
 
 .project-item-info-state {
