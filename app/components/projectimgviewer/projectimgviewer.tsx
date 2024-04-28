@@ -8,15 +8,22 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 interface ProjectImgViewerProps {
     imagesToShow: string[];
     projectName: string;
+    projectSource: string;
     projectImageClicked: string;
     resetProjectImageClicked: () => void;
 }
 
-export default function ProjectImgViewer({ imagesToShow, projectName, projectImageClicked, resetProjectImageClicked }: ProjectImgViewerProps) {
+export default function ProjectImgViewer({ imagesToShow, projectName, projectSource, projectImageClicked, resetProjectImageClicked }: ProjectImgViewerProps) {
 
     const handleCloseProjectImagesViewerClick = () => {
         resetProjectImageClicked();
         setCurrentImageIndex(0);
+    };
+
+    const handleGoToProjectWebsite = () => {
+        if (projectSource != "") {
+            window.open(projectSource);
+        }
     };
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -31,7 +38,7 @@ export default function ProjectImgViewer({ imagesToShow, projectName, projectIma
     return (
         <div className='project-image-overlay' style={{display: projectImageClicked}}>
             <div className='project-utils'>
-                <button type='button' title='Go to Website' className='go-to-website-btn'>
+                <button type='button' title={`Go to Website${projectSource == '' ? ' not enable!' : '!'}`} className={`go-to-website-btn${projectSource == '' ? '-disabled' : ''}`} onClick={handleGoToProjectWebsite}>
                     <FiExternalLink/>
                 </button>
                 <button type='button' title='Previous Image' className='previous-image-btn' onClick={handleNextImage}>
