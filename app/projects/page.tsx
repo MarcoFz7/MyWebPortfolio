@@ -96,8 +96,8 @@ const Page = () => {
   const [projectWithNoImagesClicked, setProjectWithNoImagesClicked] = useState("none");
   const [projectWithNoImageMessage, setProjectWithNoImageMessage] = useState<React.ReactNode>("");
   const [clickedPhotoRelatedImages, setClickedPhotoRelatedImages] = useState<string[]>([]);
-  const [projectImageSource, setProjectImageSource] = useState("");
-
+  const [projectName, setProjectName] = useState("");
+  const [projectSource, setProjectSource] = useState("");
   
   const handleProjectImageClick = (projectName: string) => {  
     let numberOfImages = 0;
@@ -106,6 +106,8 @@ const Page = () => {
       case "MyLifestylePal":
         setClickedPhotoRelatedImages([]);
         numberOfImages = 0;
+        setProjectName("MyLifestylePal");
+        setProjectSource("");
         break;     
     }
 
@@ -144,7 +146,7 @@ const Page = () => {
 
   return (
     <div className="projects-page">
-      <ProjectImgViewer imagesToShow={clickedPhotoRelatedImages} projectName="test" projectImageClicked={projectImageClicked} resetProjectImageClicked={resetProjectImageClicked}></ProjectImgViewer>
+      <ProjectImgViewer imagesToShow={clickedPhotoRelatedImages} projectName={projectName} projectSource={projectSource} projectImageClicked={projectImageClicked} resetProjectImageClicked={resetProjectImageClicked}></ProjectImgViewer>
       <Popup popupDisplay={projectWithNoImagesClicked} popupType='info' popupMessage={projectWithNoImageMessage} resetPopup={resetPopup}></Popup>
       <span className='page-header'>
         Projects
