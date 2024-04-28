@@ -12,7 +12,7 @@
 }
 
 .contact-header {
-    font-size: clamp(16px, 1.8vw, 20px);
+    font-size: clamp(15px, 1.75vw, 18px);
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
 
@@ -48,7 +48,7 @@
 
 .form-required {
     opacity: 0;
-    font-size: clamp(15px, 1.8vw, 20px);
+    font-size: clamp(15px, 1.75vw, 18px);
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     color: rgb(var(--darker-green-rgb));
@@ -60,7 +60,7 @@
 
 .form-required-highlighted {
     opacity: 1;
-    font-size: clamp(15px, 1.8vw, 20px);
+    font-size: clamp(15px, 1.75vw, 18px);
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     color: rgb(var(--darker-green-rgb));
@@ -71,7 +71,7 @@
 }
 
 .form-input {
-    font-size: clamp(14px, 1.6vw, 19px);
+    font-size: clamp(14px, 1.6vw, 18px);
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     color: rgb(var(--details-2-rgb));
@@ -85,7 +85,7 @@
 }
 
 .form-input-highlighted {
-    font-size: clamp(14px, 1.6vw, 19px);
+    font-size: clamp(14px, 1.6vw, 18px);
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     color: rgb(var(--details-2-rgb));
@@ -137,7 +137,7 @@
 .form-send-response {
     margin-right: 10px;
     margin-top: 7.5px;
-    font-size: clamp(14px, 1.8vw, 18px);
+    font-size: clamp(14px, 1.8vw, 16px);
     font-weight: 600;
     color: rgb(var(--details-2-rgb));
 }

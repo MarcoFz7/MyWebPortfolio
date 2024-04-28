@@ -55,7 +55,9 @@ const Page = () => {
           I&apos;m a software developer who loves learning new technologies and areas of the IT&nbsp; 
           <strong>world</strong>.<br></br>
           From the freedom that comes with personal web development, a newfound passion emerged:
-          learning how to build simple, intuitive and harmonious web applications.
+          learning how to build simple, intuitive and harmonious web applications.<br></br>
+          To know more about my <strong>interests</strong> and <strong>experiences</strong> feel free to navigate through to my projects and 
+          experiences pages, and if needed, to contact me!
         </span>      
       </div>
     </div>
