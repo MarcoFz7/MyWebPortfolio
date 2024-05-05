@@ -73,14 +73,18 @@ const Page = () => {
     }
 
     let tech = "Not specified!";
+    let stopLoop = false;
 
     projectCommits.forEach(commit => {
-      if (commit.commit.message.includes("#setMainTechnology")) {
-      
+      if (commit.commit.message.includes("#setMainTechnology") && !stopLoop) {
         // Use a simple regular expression to match the technology name
         const match = commit.commit.message.match(/\*(.*?)\*/);
 
         tech = match ? match[1].trim() : "Not found!";
+        
+        if (tech != "Not found!") {
+          stopLoop = true;
+        }
       }
     });
 
