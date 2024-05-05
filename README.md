@@ -36,8 +36,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Connection with GitHub Api
 ### Commit messages:
 
-For each project main techonolgy -> #comment #setMainTechnology *mainTechnology*
+For each project main techonolgy --> #comment #setMainTechnology *mainTechnology*
 
-For each project state -> use one of following key expressions: "#earlydevelopment", "#inprogress", "#closingdevelopment", "#done"
+For each project state --> use one of following key expressions: "#earlydevelopment", "#inprogress", "#closingdevelopment", "#done"
 
 Obs: This project will be in progress for a long time, since it will be updated as long as I keep learning new things and want to try new ideas! 
