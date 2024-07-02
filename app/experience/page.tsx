@@ -2,7 +2,9 @@
 
 import React, {RefObject, useState, useEffect, useRef} from 'react';
 import { FaLinkedinIn } from "react-icons/fa6";
+
 import './page.css';
+
 
 // progression property options: "New role!"; "New company!";"New company & role!";"" (empty for first item)
 /* 
@@ -29,7 +31,7 @@ const experiences=[
         "Daily communication with clients and functional team, with English being the most used language."
       ],
       client: "Euronext",
-      date: "2023-08",
+      date: "2023/08",
       progression: "New role!"
   },
   {
@@ -51,7 +53,7 @@ const experiences=[
       "Updated and transformed an internal web app (ASP.NET Core and React) into a Microsoft Teams App, connected with the back office solution, using Microsoft Azure cloud services."
     ],
     client: "Internal",
-    date: "2023-02",
+    date: "2023/02",
     progression: ""
   }
 ]
@@ -136,7 +138,7 @@ const Page = () => {
               <div className='timeline-item-content'>
                 <div className="timeline-item-header">              
                   <span className="timeline-item-role">{item.role}</span>
-                  <span className="timeline-item-date">{item.date}</span>
+                  <span className='timeline-item-date'>{item.date}</span>
                 </div>
                 <div className='timeline-item-details'>
                   <span className="timeline-item-company">{item.company}</span>
