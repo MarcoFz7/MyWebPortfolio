@@ -42,7 +42,7 @@ interface SideNavBarProps {
 }
 
 export default function SideNavBar({ onItemClick, onLayoutNotification, onSidebarNotification }: SideNavBarProps) {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [clickedMainIndex, setClickedMainIndex] = useState(-1);
     const [clickedSecondaryIndex, setClickedSecondaryIndex] = useState(-1);
 
