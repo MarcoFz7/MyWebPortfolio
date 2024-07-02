@@ -111,6 +111,25 @@ body {
      1px  1px 0 #000;
 }
 
+.screen-background-addorns {
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.cube {
+  height: 4.5%;
+  width: 7.5%;
+  background-color: white;
+  position: absolute;
+  transition: left 5s;
+  z-index: -1;
+  margin-bottom: 0.5%;
+}
+  .cube.move {
+    left: 100% !important;
+  } 
+
 .main-screen {
   position: absolute;
   top: 3%;
