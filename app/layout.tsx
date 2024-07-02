@@ -70,17 +70,17 @@ export default function RootLayout({
     const clickedElement = event.target as HTMLElement;
   
     // Function to check if the element belongs to the sidebar
-    const hasClassOrAncestor = (element: HTMLElement, className: string): boolean => {
-      if (element.classList.contains(className)) {
+    const hasClassOrAncestor = (element: HTMLElement, className: string, className2: string): boolean => {
+      if (element.classList.contains(className) || element.classList.contains(className2)) {
         return true;
       } else if (element.parentElement) {
-        return hasClassOrAncestor(element.parentElement, className);
+        return hasClassOrAncestor(element.parentElement, className, className2);
       }
       return false;
     };
   
     // Call function 
-    const isSidebarClick = hasClassOrAncestor(clickedElement, 'sidebar');
+    const isSidebarClick = hasClassOrAncestor(clickedElement, 'sidebar', 'sidebar-panel');
   
     if (!sidebarNotification) {
       if (!isSidebarClick) {  
