@@ -107,10 +107,10 @@ const Page = () => {
     let numberOfImages = 0;
 
     switch (projectName) {
-      case "MyLifestylePal":
-        setClickedPhotoRelatedImages([]);
-        numberOfImages = 0;
-        setProjectName("MyLifestylePal");
+      case "MyVitaBuilder":
+        setClickedPhotoRelatedImages(["/next.svg"]);
+        numberOfImages = 1;
+        setProjectName("MyVitaBuilder");
         setProjectSource("");
         break;     
     }
@@ -130,7 +130,7 @@ const Page = () => {
 
   const handleProjectItemMainImage = (projectName: string): string => {
     switch (projectName) {
-      case "MyLifestylePal":
+      case "MyVitaBuilder":
         return "/next.svg";
       default:
         return "/next.svg";     
@@ -152,9 +152,11 @@ const Page = () => {
     <div className="projects-page">
       <ProjectImgViewer imagesToShow={clickedPhotoRelatedImages} projectName={projectName} projectSource={projectSource} projectImageClicked={projectImageClicked} resetProjectImageClicked={resetProjectImageClicked}></ProjectImgViewer>
       <Popup popupDisplay={projectWithNoImagesClicked} popupType='info' popupMessage={projectWithNoImageMessage} resetPopup={resetPopup}></Popup>
-      <span className='page-header'>
-        Projects
-      </span>
+      <div className='page-header-wrapper'>
+        <span className='page-header'>
+          Projects
+        </span>
+      </div>
       <div className="projects-list">
 
         {projects.map((project) => (

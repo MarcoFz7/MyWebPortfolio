@@ -6,6 +6,13 @@
     overflow: hidden;
 }
 
+.page-header-wrapper {
+    width: 70%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .page-header {
     font-size: clamp(35px, 5vw, 50px);
     font-weight: 200;
@@ -73,6 +80,9 @@
     margin-bottom: 5px !important;
     padding-bottom: 0;
     border: none;
+}
+.project-item:not(:last-child) .project-item-info {
+    margin-top: unset;
 }
 .project-item:last-child::after {
     display: none;
@@ -208,7 +218,6 @@
 
 .project-item-info-techs-icon:hover {
     color: rgb(var(--details-2-rgb));
-    font-size: clamp(16px, 2.8vh, 19px);
     cursor: pointer;
 }
 
