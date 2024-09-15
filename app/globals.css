@@ -50,12 +50,12 @@
   --details-rgb: 0, 0, 0;
   --details-2-rgb: 255, 255, 255;
 
-  --primary-rgb: 209, 177, 164;
-  --secondary-rgb: 216, 187, 176; 
-  --tertiary-rgb: 223, 197, 188;
-  --weaker-reserve-rgb: 228, 205, 198;
-  --reserve-rgb: 233, 212, 205;
-  --stronger-reserve-rgb: 240, 225, 220;
+  --primary-rgb: 235, 210, 201;
+  --secondary-rgb: 230, 200, 189;
+  --tertiary-rgb: 222, 184, 170;
+  --weaker-reserve-rgb: 218, 169, 151;
+  --reserve-rgb: 209, 155, 136;
+  --stronger-reserve-rgb: 202, 143, 121;
 
   --primary-link-rgb: 211, 171, 155;
 
@@ -110,25 +110,6 @@ body {
     -1px  1px 0 #000,
      1px  1px 0 #000;
 }
-
-.screen-background-addorns {
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-}
-
-.cube {
-  height: 4.5%;
-  width: 7.5%;
-  background-color: white;
-  position: absolute;
-  transition: left 5s;
-  z-index: -1;
-  margin-bottom: 0.5%;
-}
-  .cube.move {
-    left: 100% !important;
-  } 
 
 .main-screen {
   position: absolute;
@@ -214,7 +195,7 @@ body {
 #top-left-right-triangle {
   position: absolute;
   top: 5px;
-  left: 27.5vw;
+  left: 27.54vw;
   margin-left: 4.50px;
   width: 10px;
   height: 10px;
@@ -222,12 +203,11 @@ body {
   border-left: 15px solid transparent; /* Adjust the width of the left side */
   border-bottom: 15px solid transparent;  /* Set the color you desire */
   clip-path: polygon(0 0, 100% 0, 0 100%);
-
 }
 
 #top-left-bottom-triangle {
   position: absolute;
-  top: 30vh;
+  top: 29.96vh;
   left: 5px;
   width: 10px;
   height: 10px;
@@ -236,7 +216,67 @@ body {
   border-left: 15px solid transparent; /* Adjust the width of the left side */
   border-bottom: 15px solid transparent;  /* Set the color you desire */
   clip-path: polygon(0 0, 100% 0, 0 100%);
+}
 
+#top-right-container {
+  background: none;
+  height: 30vh;
+  width: 27.5vw;
+  right: 0;
+  position: absolute;
+
+}
+
+#top-right-btn {
+  position: absolute;
+  right: 0;
+  padding-top: 30px;
+  height: clamp(85px, 11.75vw, 120px);
+  width: 62.5px;
+
+  display: flex;
+  align-items: center;
+}
+
+.openclose-sidebar-btn-layout {
+  position: relative;
+
+  background-color: rgb(var(--primary-rgb));
+  color: rgb(var(--details-rgb));
+
+  border: 1px solid rgb(var(--primary-rgb));
+  border-radius: 4px;
+  
+  z-index: 2;
+
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: ease-out 0.25s;
+
+  padding: 3px;
+}
+
+.openclose-sidebar-btn-layout svg {
+  width: 100%;
+  height: auto;
+} 
+
+@media only screen and (max-width: 325px) {
+  .main-screen {
+      left: 1.25%;
+      width: 97.5%;
+  }
+}
+
+.openclose-sidebar-btn-layout:hover {
+  background-color: rgb(var(--reserve-rgb));
+  color: rgb(var(--details-2-rgb));
+  border-color: rgb(var(--details-2-rgb));
 }
 
 #bottom-right {
@@ -261,7 +301,7 @@ body {
 #bottom-right-left-triangle {
   position: absolute;
   bottom: 5px;
-  right: 27.5vw;
+  right: 27.52vw;
   margin-right: 4.70px;
   width: 10px;
   height: 10px;
@@ -297,11 +337,4 @@ body {
     left: 35px;
     right: 27.5px;
   }
-}
-
-#navigation-marker {
-  position: relative;
-  top: 10px;
-  padding-left: 1.1vw;
-  font-size: 3vh;
 }
