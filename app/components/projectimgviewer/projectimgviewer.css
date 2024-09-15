@@ -34,8 +34,8 @@
 
     background-color: rgba(var(--imageviewer-background-utils-specific-rgb), 0.45);
 
-    border-bottom: 1px solid rgb(var(--stronger-reserve-rgb),0.8);
-    border-radius: 2.5px;
+    border-bottom: 2px solid rgb(var(--stronger-reserve-rgb), 0.9);
+    border-radius: 1.5px;
 }
 
 @media only screen and (max-width: 375px) {
@@ -86,7 +86,6 @@
     background-color: rgb(var(--tertiary-rgb));
     color: rgb(var(--details-rgb));
 
-    border: 1px solid rgb(var(--details-2-rgb));
     border-radius: 5px;
 }
 

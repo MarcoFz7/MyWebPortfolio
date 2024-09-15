@@ -20,7 +20,7 @@
     padding: 2.5px;
     padding-left: 5px;
     padding-right: 5px;
-    border: 1px solid rgb(var(--primary-rgb));
+    border: 2px solid rgb(var(--primary-rgb));
 }
 
 .toggle label:hover {

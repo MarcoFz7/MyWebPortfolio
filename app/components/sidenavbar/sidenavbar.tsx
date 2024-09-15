@@ -36,7 +36,7 @@ const menuSecondaryItems=[
 ]
 
 interface SideNavBarProps {
-  onItemClick: (itemName: string) => void;
+  onItemClick: number;
   onLayoutNotification: boolean;
   onSidebarNotification: () => void;
 }
@@ -72,15 +72,17 @@ export default function SideNavBar({ onItemClick, onLayoutNotification, onSideba
       }
     }, []);
     
-    
+    useEffect(() => {
+       toggleSidebar()
+    }, [onItemClick]);
+
     useEffect(() => {
       if (onLayoutNotification) {
         setIsSidebarOpen(false);
       }
     }, [onLayoutNotification]);
 
-    const handleMainItemClick = (itemName: string, index: number) => {
-      onItemClick(itemName);
+    const handleMainItemClick = (index: number) => {
       setClickedSecondaryIndex(-1);
 
       // Check if is small screen (width)
@@ -94,8 +96,7 @@ export default function SideNavBar({ onItemClick, onLayoutNotification, onSideba
       setClickedMainIndex(index);
     };
 
-    const handleSecondaryItemClick = (itemName: string, index: number) => {
-      onItemClick(itemName);
+    const handleSecondaryItemClick = (index: number) => {
       setClickedMainIndex(-1);
 
       // Check if is small screen (width)
@@ -126,9 +127,9 @@ export default function SideNavBar({ onItemClick, onLayoutNotification, onSideba
 
     return (
         <div className='sidebar-panel'>
-          <button type='button' title='Open/Close Sidebar' className={`openclose-sidebar-btn${isSidebarOpen ? '' : '-closed'}`} onClick={toggleSidebar}>
+          {/* <button type='button' title='Open/Close Sidebar' className={`openclose-sidebar-btn${isSidebarOpen ? '' : '-closed'}`} onClick={toggleSidebar}>
               <GiHamburgerMenu/>
-          </button>
+          </button> */}
           <div className={`sidebar${isSidebarOpen ? '' : '-closed'}`}>
             <div className='container'>
               <div className='header-container'>
@@ -139,7 +140,7 @@ export default function SideNavBar({ onItemClick, onLayoutNotification, onSideba
               <div className='options'>                     
                 {
                     menuMainItems.map((item, index) => (                       
-                        <Link href={item.path} key={index} className={`option group ${clickedMainIndex === index ? 'clicked-option' : ''}`} onClick={() => handleMainItemClick(item.name, index)}>
+                        <Link href={item.path} key={index} className={`option group ${clickedMainIndex === index ? 'clicked-option' : ''}`} onClick={() => handleMainItemClick(index)}>
                           <div className={`group-hover:text-white icon ${clickedMainIndex === index ? 'clicked-icon' : ''}`}>{item.icon}</div>                    
                           <h3 className={`group-hover:text-white link-text ${clickedMainIndex === index ? 'clicked-text' : ''}`}>{item.name}</h3>
                         </Link>
@@ -149,7 +150,7 @@ export default function SideNavBar({ onItemClick, onLayoutNotification, onSideba
               <div className='options'>                     
                 {
                     menuSecondaryItems.map((item, index) => (                       
-                        <Link href={item.path} key={index} className={`option group ${clickedSecondaryIndex === index ? 'clicked-option' : ''}`} onClick={() => handleSecondaryItemClick(item.name,index)}>
+                        <Link href={item.path} key={index} className={`option group ${clickedSecondaryIndex === index ? 'clicked-option' : ''}`} onClick={() => handleSecondaryItemClick(index)}>
                             <div className={`group-hover:text-white icon ${clickedSecondaryIndex === index ? 'clicked-icon' : ''}`}>{item.icon}</div>                    
                             <h3 className={`group-hover:text-white link-text ${clickedSecondaryIndex === index ? 'clicked-text' : ''}`} style={{paddingRight: '20px'}}>{item.name}</h3>
                         </Link>
