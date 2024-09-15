@@ -122,9 +122,11 @@ const Page = () => {
 
   return (
     <div className="experience-page">
-      <span className='page-header'>
-        Experience<br></br>
-      </span>
+      <div className='page-header-wrapper'>
+        <span className='page-header'>
+          Experience<br></br>
+        </span>
+      </div>
       <div className='page-sub-header'>
         <button type='button' title='LinkedIn' className='linkedIn-btn' onClick={handleLinkedInBtn}>
             <FaLinkedinIn/>

@@ -37,9 +37,11 @@ const Page = () => {
 
   return (
     <div className="about-me-page">
-      <span className='page-header'>
-        {isSmallScreen ? "Marco Fz." : "Marco Ferraz"}
-      </span>
+      <div className='page-header-wrapper'>
+        <span className='page-header'>
+          {isSmallScreen ? "Marco Fz." : "Marco Ferraz"}
+        </span>
+      </div>
       <div className='page-sub-header'>
         <button type='button' title='LinkedIn' className='linkedIn-btn' onClick={handleLinkedInBtn}>
             <FaLinkedinIn/>

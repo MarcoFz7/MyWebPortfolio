@@ -7,6 +7,13 @@
     z-index: 1;
 }
 
+.page-header-wrapper {
+    width: 70%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .page-header {
     font-size: clamp(35px, 5vw, 50px);
     font-weight: 200;
@@ -179,11 +186,11 @@
     content: '';
     color: rgb(var(--details-rgb));
     position: absolute;
-    left: -25px; 
+    left: -24.5px; 
     top: 50%;
     transform: translateY(-50%);
-    width: 16px; 
-    height: 16px;
+    width: 15px; 
+    height: 15px;
     background-color: rgb(var(--primary-rgb)); 
     z-index: 8;  
 }

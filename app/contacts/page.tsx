@@ -28,9 +28,11 @@ const Page = () => {
 
   return (
     <div className="contacts-page">
-      <span className='page-header'>
-        Contacts
-      </span>
+      <div className='page-header-wrapper'>
+        <span className='page-header'>
+          Contacts
+        </span>
+      </div>
       <div className='page-sub-header'>
         <button type='button' title='LinkedIn' className='linkedIn-btn' onClick={handleLinkedInBtn}>
             <FaLinkedinIn/>
