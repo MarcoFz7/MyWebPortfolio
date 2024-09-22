@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react'
 import './themeSwitcher.css'
 import { GoMoon, GoSun } from "react-icons/go";
 
+/**
+ * @returns ThemeSwitcher
+ */
 export default function ThemeSwitcher() {
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();

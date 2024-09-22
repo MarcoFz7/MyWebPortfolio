@@ -7,6 +7,13 @@ interface ProvidersProps {
   onProvidersReady: () => void;
 }
 
+/**
+ * 
+ * @param children 
+ * @param onProvidersReady - notifies the layout that the themeSwitcher is mounted/ready
+ * 
+ * @returns Providers
+ */
 export default function Providers({children, onProvidersReady}: {children: React.ReactNode} & ProvidersProps) {
     const [mounted, setMounted] = useState(false); 
 

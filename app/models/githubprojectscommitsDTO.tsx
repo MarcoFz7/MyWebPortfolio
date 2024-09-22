@@ -1,4 +1,4 @@
-// Only needed information from the github projects commits
+// Needed information from the github projects commits
 export interface GitHubProjectCommitsDTO {
     repoName: string;
     commit: {

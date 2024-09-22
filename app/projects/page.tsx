@@ -13,6 +13,9 @@ import Popup from '../components/popup/popup';
 const Page = () => {
   const [projects, setProjects] = useState<GitHubProjectDTO[]>([]);
 
+  /**
+   * useEffect that returns all the project in the github
+   */
   useEffect(() => {
     const fetchDataAndCommits = async () => {
       const projects = await GitHubProjectsService.getAllProjects();

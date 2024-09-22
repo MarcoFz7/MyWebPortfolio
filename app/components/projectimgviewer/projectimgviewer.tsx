@@ -5,6 +5,9 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowRight, MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
+/**
+ * Interface for the ProjectImgViewer
+ */
 interface ProjectImgViewerProps {
     imagesToShow: string[];
     projectName: string;
@@ -13,6 +16,16 @@ interface ProjectImgViewerProps {
     resetProjectImageClicked: () => void;
 }
 
+/**
+ * 
+ * @param imagesToShow
+ * @param projectName - name of the project clicked 
+ * @param projectSource - url of the project
+ * @param projectImageClicked
+ * @param resetProjectImageClicked
+ *  
+ * @returns ProjectImgViewer
+ */
 export default function ProjectImgViewer({ imagesToShow, projectName, projectSource, projectImageClicked, resetProjectImageClicked }: ProjectImgViewerProps) {
 
     const handleCloseProjectImagesViewerClick = () => {
@@ -26,11 +39,13 @@ export default function ProjectImgViewer({ imagesToShow, projectName, projectSou
         }
     };
 
+    /**
+     * Const and functions to handle image viewer navigation
+     */
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const handleNextImage = () => {
         setCurrentImageIndex((prevIndex) => (prevIndex - 1 + imagesToShow.length) % imagesToShow.length);
     };
-
     const handlePreviousImage = () => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesToShow.length);
     };

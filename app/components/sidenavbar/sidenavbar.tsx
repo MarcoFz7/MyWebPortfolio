@@ -4,11 +4,13 @@ import './sidenavbar.css'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
-import { GiHamburgerMenu } from 'react-icons/gi'
 import { TbUserStar, TbUserCode, TbUserQuestion } from 'react-icons/tb'
 import { PiChatCircleDotsBold } from 'react-icons/pi'
 import ThemeSwitcher from '@/app/components/themeSwitcher/themeSwitcher'
 
+/**
+ * Menu options related to the website pages
+ */
 const menuMainItems=[
   {
       path:"/about",
@@ -27,6 +29,9 @@ const menuMainItems=[
   }
 ]
 
+/**
+ * Menu options related to website settings and/or functionalities
+ */
 const menuSecondaryItems=[
   {
       path:"/contacts",
@@ -35,13 +40,27 @@ const menuSecondaryItems=[
   }
 ]
 
+/**
+ * Interface for the SideNavBar
+ */
 interface SideNavBarProps {
   onItemClick: number;
   onLayoutNotification: boolean;
   onSidebarNotification: () => void;
 }
 
+/**
+ * 
+ * @param onItemClick - indicates the menu option clicked
+ * @param onLayoutNotification - indicates the layout sent a notification to the sidebar, for opening/closing porpuses
+ * @param onSidebarNotification - sends a notification to the layout
+ * 
+ * @returns SideNavBar
+ */
 export default function SideNavBar({ onItemClick, onLayoutNotification, onSidebarNotification }: SideNavBarProps) {
+  /**
+   * Consts for the SideNavBar
+   */
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [clickedMainIndex, setClickedMainIndex] = useState(-1);
     const [clickedSecondaryIndex, setClickedSecondaryIndex] = useState(-1);
@@ -82,6 +101,11 @@ export default function SideNavBar({ onItemClick, onLayoutNotification, onSideba
       }
     }, [onLayoutNotification]);
 
+    /**
+     * Closes the sidebar on option clicked, when the screen is small
+     * 
+     * @param index - number of the menu main option clicked
+     */
     const handleMainItemClick = (index: number) => {
       setClickedSecondaryIndex(-1);
 
@@ -96,6 +120,11 @@ export default function SideNavBar({ onItemClick, onLayoutNotification, onSideba
       setClickedMainIndex(index);
     };
 
+    /**
+     * Closes the sidebar on option clicked, when the screen is small
+     * 
+     * @param index - number of the menu secondary option clicked
+     */
     const handleSecondaryItemClick = (index: number) => {
       setClickedMainIndex(-1);
 

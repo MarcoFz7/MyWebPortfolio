@@ -1,6 +1,6 @@
 import { GitHubProjectCommitsDTO } from "./githubprojectscommitsDTO";
 
-// Only needed information from the github projects
+// Needed information from the github projects
 export interface GitHubProjectDTO {
     name: string;
     owner: {

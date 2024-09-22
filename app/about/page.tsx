@@ -6,8 +6,15 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 
 const Page = () => {
+  /**
+   * Consts for the about page
+   */
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
+  /**
+   * UseEffect to detect if its a small screen or not
+   * This const is used on the whole page
+   */
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 300);
