@@ -5,7 +5,6 @@ import { FaLinkedinIn } from "react-icons/fa6";
 
 import './page.css';
 
-
 // progression property options: "New role!"; "New company!";"New company & role!";"" (empty for first item)
 /* 
   progression was implemented as an extra propery since checking the company and role of 
@@ -22,12 +21,14 @@ const experiences=[
         "Microsoft Power Platform"
       ],
       stackExtra: [
+        "Power Apps",
+        "Power Automate",
         "Microsoft Azure",
         "React.js"
       ],
       description: [
         "Professional Service at Euronext",
-        "Develop and customize the business applications within Microsoft Power Platform through its diferent modules: Sales, Customer Service, Marketing..., using Angular.js, .Net (C#), JavaScript and more",
+        "Develop and customize the business applications within Microsoft Power Platform, Power Apps & Power Automate, through its diferent modules: Sales, Customer Service, Marketing..., using Angular.js, .Net (C#), JavaScript and more technologies like Azure.",
         "Daily communication with clients and functional team, with English being the most used language."
       ],
       client: "Euronext",
@@ -84,7 +85,6 @@ function useElementWidth(elementRef: React.RefObject<HTMLDivElement>) {
 
 const Page = () => {
   const stackListRef: RefObject<HTMLDivElement> = useRef(null);
-  //const extraInfoRef: RefObject<HTMLDivElement> = useRef(null);
   const [showIndex, setShowIndex] = useState<number[]>([]);
 
   var width = useElementWidth(stackListRef);
@@ -95,7 +95,6 @@ const Page = () => {
 
   const handleShowMore = (index: number) => {
     setShowIndex(prevState => [...prevState, index]);
-    console.log(index);
 
     setTimeout(() => {
       focusOnShowLess(index);
@@ -104,21 +103,17 @@ const Page = () => {
 
   const handleShowLess = (index: number) => {
     setShowIndex(prevState => prevState.filter(item => item !== index));
-    console.log(index);
   }
 
   const focusOnShowLess = (index: number) => {
     const showLess = document.querySelectorAll('.timeline-description')[index];
-
+    const biggestIndex = experiences.length - 1;
+ 
     // Scroll the element into view
-    showLess.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  /*useEffect(() => {
-    if (extraInfoRef.current) {
-      extraInfoRef.current.style.maxWidth = (width - 5) + 'px';
+    if (index == biggestIndex) {
+      showLess.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [handleShowMore, width]);*/
+  }
 
   return (
     <div className="experience-page">
@@ -152,7 +147,7 @@ const Page = () => {
                     <span className='timeline-item-stack-tech' key={tech}>{tech}</span>
                   ))}
                 </div>           
-                <div className='timeline-extra-info' /*ref={extraInfoRef}*/ style={{maxWidth: (width + 30), display: showIndex.includes(index) ? 'initial' : 'none'}}>
+                <div className='timeline-extra-info' style={{maxWidth: (width + 30), display: showIndex.includes(index) ? 'initial' : 'none'}}>
                   <div className='timeline-item-stack-list'>
                     {item.stackExtra.map((tech) => (
                       <span className='timeline-item-stack-tech' key={tech}>{tech}</span>
@@ -184,7 +179,3 @@ const Page = () => {
 };
  
 export default Page;
-
-
-
-
